@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="360" height="360" role="img" aria-label="A question answered">
+<defs><linearGradient id="qb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F2F5F8"/></linearGradient></defs>
+<rect width="360" height="360" rx="24" fill="url(#qb)"/>
+<rect x="30" y="52" width="228" height="66" rx="16" fill="#EDF0F4"/>
+<rect x="50" y="72" width="150" height="9" rx="4.5" fill="#B7BDC6"/>
+<rect x="50" y="90" width="108" height="9" rx="4.5" fill="#CBD1D9"/>
+<rect x="102" y="140" width="228" height="86" rx="16" fill="#F36B21"/>
+<rect x="122" y="162" width="172" height="9" rx="4.5" fill="#FFFFFF" fill-opacity="0.95"/>
+<rect x="122" y="180" width="140" height="9" rx="4.5" fill="#FFFFFF" fill-opacity="0.7"/>
+<rect x="122" y="198" width="96" height="9" rx="4.5" fill="#FFFFFF" fill-opacity="0.5"/>
+<circle cx="60" cy="276" r="20" fill="#F36B21" fill-opacity="0.12"/>
+<path d="M51 276l6 6 13-14" stroke="#F36B21" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="94" y="271" font-family="Rajdhani, sans-serif" font-size="19" font-weight="700" fill="#12141A">Answered</text>
+<text x="94" y="291" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" fill="#7B818B">before you have to chase it</text>
+</svg>

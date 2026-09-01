@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 557" width="570" height="557" role="img" aria-label="Engagement terms with each answer confirmed">
+<defs><linearGradient id="fbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A1E25"/><stop offset="1" stop-color="#0A0C10"/></linearGradient><radialGradient id="fgl" cx="0.85" cy="0.1" r="0.75"><stop offset="0" stop-color="#F36B21" stop-opacity="0.30"/><stop offset="1" stop-color="#F36B21" stop-opacity="0"/></radialGradient><pattern id="fgr" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#FFF" stroke-opacity="0.04"/></pattern></defs>
+<rect width="570" height="557" rx="20" fill="url(#fbg)"/>
+<rect width="570" height="557" rx="20" fill="url(#fgr)"/>
+<rect width="570" height="557" rx="20" fill="url(#fgl)"/>
+<rect x="44" y="46" width="30" height="4" rx="2" fill="#F36B21"/>
+<text x="44" y="86" font-family="Rajdhani, sans-serif" font-size="29" font-weight="700" fill="#FFFFFF">The terms, up front</text>
+<text x="44" y="113" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" fill="#FFFFFF" fill-opacity="0.52">Agreed before anyone starts — not after</text>
+<rect x="44" y="156" width="482" height="74" rx="14" fill="#FFFFFF" fill-opacity="0.055" stroke="#FFFFFF" stroke-opacity="0.13"/>
+<circle cx="82" cy="193" r="17" fill="#F36B21" fill-opacity="1"/>
+<path d="M74 193l6 6 12-13" stroke="#FFFFFF" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="114" y="189" font-family="Rajdhani, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">You own the code</text>
+<text x="114" y="211" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" fill="#FFFFFF" fill-opacity="0.5">IP assigned to you from the moment it is written</text>
+<rect x="44" y="248" width="482" height="74" rx="14" fill="#FFFFFF" fill-opacity="0.055" stroke="#FFFFFF" stroke-opacity="0.13"/>
+<circle cx="82" cy="285" r="17" fill="#F36B21" fill-opacity="1"/>
+<path d="M74 285l6 6 12-13" stroke="#FFFFFF" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="114" y="281" font-family="Rajdhani, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">Shortlist in days</text>
+<text x="114" y="303" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" fill="#FFFFFF" fill-opacity="0.5">screened on the detail that matters</text>
+<rect x="44" y="340" width="482" height="74" rx="14" fill="#FFFFFF" fill-opacity="0.055" stroke="#FFFFFF" stroke-opacity="0.13"/>
+<circle cx="82" cy="377" r="17" fill="#F36B21" fill-opacity="1"/>
+<path d="M74 377l6 6 12-13" stroke="#FFFFFF" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="114" y="373" font-family="Rajdhani, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">30-day exit, either side</text>
+<text x="114" y="395" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" fill="#FFFFFF" fill-opacity="0.5">repos, credentials and docs handed over</text>
+<rect x="44" y="432" width="482" height="74" rx="14" fill="#FFFFFF" fill-opacity="0.055" stroke="#FFFFFF" stroke-opacity="0.13"/>
+<circle cx="82" cy="469" r="17" fill="#F36B21" fill-opacity="0.82"/>
+<path d="M74 469l6 6 12-13" stroke="#FFFFFF" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="114" y="465" font-family="Rajdhani, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">Overlap in your hours</text>
+<text x="114" y="487" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" fill="#FFFFFF" fill-opacity="0.5">sprint reviews you actually attend</text>
+</svg>

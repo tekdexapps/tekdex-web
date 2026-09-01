@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="360" height="360" role="img" aria-label="Roles TekDex staffs inside a delivery pod">
+<defs><linearGradient id="rb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F4F6F9"/></linearGradient></defs>
+<rect width="360" height="360" rx="24" fill="url(#rb)"/>
+<rect x="28" y="34" width="26" height="4" rx="2" fill="#F36B21"/>
+<text x="28" y="70" font-family="Rajdhani, sans-serif" font-size="25" font-weight="700" fill="#0E1015">Inside a pod</text>
+<rect x="28" y="100" width="150" height="32" rx="16" fill="#FFFFFF" stroke="#F36B21" stroke-width="1.4"/>
+<circle cx="46" cy="116" r="4" fill="#F36B21"/>
+<text x="58" y="121" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500" fill="#0E1015">Lead Architect</text>
+<rect x="28" y="137" width="135" height="32" rx="16" fill="#FFFFFF" stroke="#DFE3E9" stroke-width="1.4"/>
+<circle cx="46" cy="153" r="4" fill="#B9BEC6"/>
+<text x="58" y="158" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500" fill="#0E1015">AI Developer</text>
+<rect x="28" y="174" width="90" height="32" rx="16" fill="#FFFFFF" stroke="#DFE3E9" stroke-width="1.4"/>
+<circle cx="46" cy="190" r="4" fill="#B9BEC6"/>
+<text x="58" y="195" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500" fill="#0E1015">DevOps</text>
+<rect x="28" y="211" width="127" height="32" rx="16" fill="#FFFFFF" stroke="#F36B21" stroke-width="1.4"/>
+<circle cx="46" cy="227" r="4" fill="#F36B21"/>
+<text x="58" y="232" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500" fill="#0E1015">UX Engineer</text>
+<rect x="28" y="248" width="164" height="32" rx="16" fill="#FFFFFF" stroke="#DFE3E9" stroke-width="1.4"/>
+<circle cx="46" cy="264" r="4" fill="#B9BEC6"/>
+<text x="58" y="269" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500" fill="#0E1015">Business Analyst</text>
+<rect x="28" y="285" width="127" height="32" rx="16" fill="#FFFFFF" stroke="#DFE3E9" stroke-width="1.4"/>
+<circle cx="46" cy="301" r="4" fill="#B9BEC6"/>
+<text x="58" y="306" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500" fill="#0E1015">QA Engineer</text>
+<rect x="28" y="322" width="157" height="32" rx="16" fill="#FFFFFF" stroke="#F36B21" stroke-width="1.4"/>
+<circle cx="46" cy="338" r="4" fill="#F36B21"/>
+<text x="58" y="343" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500" fill="#0E1015">Project Manager</text>
+</svg>

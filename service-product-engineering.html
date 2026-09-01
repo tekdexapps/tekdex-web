@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<!--<< Header Area >>-->
+
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8">
+   <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+   <meta http-equiv="Pragma" content="no-cache">
+   <script>
+      (function () {
+         try {
+            var m = localStorage.getItem("td-theme");
+            if (!m) m = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", m);
+         } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+      })();
+   </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="ex-coders">
+    <meta name="description" content="AI-native products built end to end — from ERPs that reconcile themselves to platforms that generate their own workflows.">
+    <!-- ======== Page title ============ -->
+    <title>Product Engineering | TekDex</title>
+    <!--<< Favcion >>-->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/brand/favicon-32.png">
+   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/brand/favicon-180.png">
+    <!--<< Bootstrap min.css >>-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--<< All Min Css >>-->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!--<< Animate.css >>-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!--<< Magnific Popup.css >>-->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--<< MeanMenu.css >>-->
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <!--<< Swiper Bundle.css >>-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!--<< Main.css >>-->
+    <link rel="stylesheet" href="assets/css/main.css?v=1788005436">
+   <link rel="stylesheet" href="assets/css/tekdex.css?v=1788005436">
+
+   <link rel="canonical" href="https://tekdexinc.com/service-product-engineering.html">
+   <meta property="og:type" content="website">
+   <meta property="og:site_name" content="TekDex">
+   <meta property="og:url" content="https://tekdexinc.com/service-product-engineering.html">
+   <meta property="og:title" content="Product Engineering | TekDex">
+   <meta property="og:description" content="Full-stack delivery in React, Next.js and Python — discovery and architecture through to production launch.">
+   <meta property="og:image" content="https://tekdexinc.com/assets/img/brand/tekdex-logo.png">
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="Product Engineering | TekDex">
+   <meta name="twitter:description" content="Full-stack delivery in React, Next.js and Python — discovery and architecture through to production launch.">
+   <meta name="twitter:image" content="https://tekdexinc.com/assets/img/brand/tekdex-logo.png">
+</head>
+
+<body>
+
+
+    <!-- Preloader Start -->
+    <div id="preloader" class="preloader">
+        <div class="animation-preloader">
+            <div class="spinner">
+            </div>
+            <div class="txt-loading">
+                <span data-text-preloader="T" class="letters-loading">
+                    T
+                </span>
+                <span data-text-preloader="E" class="letters-loading">
+                    E
+                </span>
+                <span data-text-preloader="K" class="letters-loading">
+                    K
+                </span>
+                <span data-text-preloader="D" class="letters-loading">
+                    D
+                </span>
+                <span data-text-preloader="E" class="letters-loading">
+                    E
+                </span>
+                <span data-text-preloader="X" class="letters-loading">
+                    X
+                </span>
+            </div>
+            <p class="text-center">Loading</p>
+        </div>
+        <div class="loader">
+            <div class="row">
+                <div class="col-3 loader-section section-left">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-left">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-right">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-right">
+                    <div class="bg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<< Mouse Cursor Start >>-->
+    <div class="mouse-cursor cursor-outer"></div>
+    <div class="mouse-cursor cursor-inner"></div>
+
+    <!-- Offcanvas Area Start -->
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="index.html">
+                                <img src="assets/img/brand/tekdex-logo.png" alt="TekDex" width="176" height="40">
+                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text d-none d-lg-block">
+                        TekDex is a technology-driven consulting and engineering company. We build agentic AI, cloud-native platforms and ServiceNow solutions for enterprises worldwide.
+                    </p>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h4>Contact Info</h4>
+                        <ul>
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon">
+                                    <i class="fal fa-map-marker-alt"></i>
+                                </div>
+                                
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon mr-15">
+                                    <i class="fal fa-envelope"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a href="mailto:consultations@tekdexinc.com"><span
+                                            class="mailto:consultations@tekdexinc.com">consultations@tekdexinc.com</span></a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon mr-15">
+                                    <i class="fal fa-clock"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a target="_blank" href="#">Mon–Fri, 5:00 PM – 2:00 AM</a>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                        <div class="header-button mt-4">
+                            <a href="contact.html" class="theme-btn text-center">
+                                <span>get A Quote<i class="fa-solid fa-arrow-right-long"></i></span>
+                            </a>
+                        </div>
+                        <div class="social-icon d-flex align-items-center">
+                              <a href="https://www.linkedin.com/company/tekdex" target="_blank" rel="noopener" aria-label="TekDex on LinkedIn" class="td-social"><i class="fab fa-linkedin-in"></i></a>
+                           </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+
+    <!-- Header Section Start -->
+    <header>
+        <div class="header-top-section top-style-3">
+            <div class="container">
+                <div class="header-top-wrapper">
+                    <ul class="contact-list">
+                        <li>
+                            <i class="far fa-envelope"></i>
+                            <a href="mailto:consultations@tekdexinc.com" class="link">consultations@tekdexinc.com</a>
+                        </li>
+                        
+                    </ul>
+                    <div class="top-right">
+                           <button type="button" class="td-theme-toggle" data-td-theme-toggle
+                              aria-label="Switch between light and dark theme" title="Light / dark">
+                              <i class="fa-solid fa-sun td-theme-toggle__sun"></i>
+                              <i class="fa-solid fa-moon td-theme-toggle__moon"></i>
+                           </button>
+                        
+                        <div class="social-icon d-flex align-items-center">
+                              <a href="https://www.linkedin.com/company/tekdex" target="_blank" rel="noopener" aria-label="TekDex on LinkedIn" class="td-social"><i class="fa-brands fa-linkedin-in"></i></a>
+                           </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="header-sticky" class="header-1">
+            <div class="container">
+                <div class="mega-menu-wrapper">
+                    <div class="header-main style-2">
+                        <div class="header-left">
+                            <div class="logo">
+                                <a href="index.html" class="header-logo">
+                                    <img src="assets/img/brand/tekdex-logo.png" alt="TekDex" width="176" height="40">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-middle">
+                            <div class="mean__menu-wrapper">
+                                <div class="main-menu">
+                                    <nav id="mobile-menu">
+                                        <ul>
+                                 <li>
+                                    <a href="index.html">Home</a>
+                                 </li>
+                                 <li>
+                                    <a href="about.html">About</a>
+                                 </li>
+                                 <li class="active">
+                                    <a href="service.html">Services</a>
+                                 </li>
+                                 <li>
+                                    <a href="pricing.html">Engagement</a>
+                                 </li>
+                                 <li>
+                                    <a href="news.html">Insights</a>
+                                 </li>
+                                 <li>
+                                    <a href="career.html">Careers</a>
+                                 </li>
+                                 <li>
+                                    <a href="contact.html">Contact</a>
+                                 </li>
+                              </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-right d-flex justify-content-end align-items-center">
+                            <a href="#0" class="search-trigger search-icon"><i class="fal fa-search"></i></a>
+                            <!-- <a href="#0"><i class="fa-solid fa-cart-shopping"></i></a> -->
+                            <div class="header-button ms-4">
+                                <a href="contact.html" class="gt-btn">
+                                    <span>
+                                        get A Quote
+                                        <i class="fa-solid fa-arrow-right-long"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="header__hamburger d-block d-xl-none my-auto">
+                                <div class="sidebar__toggle">
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Area Start -->
+    <div class="search-wrap">
+        <div class="search-inner">
+            <i class="fas fa-times search-close" id="search-close"></i>
+            <div class="search-cell">
+                <form method="get">
+                    <div class="search-field-holder">
+                        <input type="search" class="main-search-input" placeholder="Search...">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--<< Breadcrumb Section Start >>-->
+    <div class="breadcrumb-wrapper bg-cover" style="background-image: url('assets/img/brand/page-banner.svg');">
+        <div class="border-shape">
+            <img src="assets/img/brand/banner-element.png" alt="shape-img">
+        </div>
+        <div class="line-shape">
+            <img src="assets/img/line-element.png" alt="shape-img">
+        </div>
+        <div class="container">
+            <div class="page-heading">
+                <h1 class="wow fadeInUp" data-wow-delay=".3s">Product Engineering</h1>
+                <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                    </li>
+                    <li>
+                        Product Engineering
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Details Section Start -->
+    <section class="service-details-section fix section-padding">
+        <div class="container">
+            <div class="service-details-wrapper">
+                <div class="row g-4">
+                    <div class="col-12 col-lg-4 order-2 order-md-1">
+                        <div class="main-sidebar">
+                            <div class="single-sidebar-widget">
+                                <div class="wid-title">
+                                    <h3>All Services</h3>
+                                </div>
+                                <div class="widget-categories">
+                                    <ul>
+                                        <li><a href="service-agentic-ai.html">Agentic AI Systems <i class="fa-solid fa-arrow-right-long"></i></a></li>
+                                        <li><a href="service-ai-llm-engineering.html">AI &amp; LLM Engineering <i class="fa-solid fa-arrow-right-long"></i></a></li>
+                                        <li><a href="service-mlops.html">MLOps &amp; Model Ops <i class="fa-solid fa-arrow-right-long"></i></a></li>
+                                        <li><a href="service-cloud-devops.html">Cloud &amp; DevOps <i class="fa-solid fa-arrow-right-long"></i></a></li>
+                                        <li><a href="service-servicenow.html">ServiceNow Platform <i class="fa-solid fa-arrow-right-long"></i></a></li>
+                                        <li class="active"><a href="service-product-engineering.html">Product Engineering <i class="fa-solid fa-arrow-right-long"></i></a></li>
+                                        <li><a href="service-talent-solutions.html">Talent Solutions <i class="fa-solid fa-arrow-right-long"></i></a></li>
+                                        <li><a href="service-ai-advisory.html">AI Advisory <i class="fa-solid fa-arrow-right-long"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="single-sidebar-widget td-svc-form td-svc-form--aside" style="--svc-a:#1A1C2E; --svc-b:#0C0D18">
+                     <h3>How May We Help You?</h3>
+                     <p class="td-svc-form__note">Goes straight to consultations@tekdexinc.com.</p>
+                     <form action="#" id="contact-form" method="POST" class="contact-form-items td-svc-form__form">
+                                <input type="hidden" name="service" value="Product Engineering">
+                     <div class="form-clt">
+                        <span>Your name*</span>
+                        <input type="text" name="name" placeholder="Your name">
+                     </div>
+                     <div class="form-clt">
+                        <span>Your email*</span>
+                        <input type="text" name="email" placeholder="you@company.com">
+                     </div>
+                     <div class="form-clt">
+                        <span>What do you need?*</span>
+                        <textarea name="message" placeholder="A sentence or two is plenty"></textarea>
+                     </div>
+                     <button type="submit" class="td-svc-form__btn">Send message <i
+                           class="fa-sharp fa-regular fa-arrow-right-long"></i></button>
+                  </form>
+                  </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-8 order-1 order-md-2">
+                        <div class="service-details-items">
+                            <div class="td-svc" style="--svc-a:#1A1C2E; --svc-b:#0C0D18">
+               <div class="td-svc-hero">
+                  <div class="td-svc-hero__copy">
+                     <span class="td-svc-hero__eyebrow">Product</span>
+                     <h3 class="td-svc-hero__title">Product Engineering</h3>
+                     <p>The interesting products being built right now are AI-native, not AI-decorated. An ERP where the reconciliation runs itself and only surfaces the exceptions. A procurement tool that reads the contract and flags the clause. An ops platform where the workflow is generated from the request rather than configured in advance by an implementation team.</p>
+                     <p>That is what we build — end to end, one team accountable for discovery, architecture, interface, backend and launch. React and Next.js on the front, Python and FastAPI behind, models where they genuinely earn their place and ordinary deterministic code everywhere else. The hard calls are rarely about the framework; they are about which decisions a model is allowed to make and what happens when it gets one wrong.</p>
+                     <a class="td-svc-hero__cta" href="contact.html">Talk to us about this <i
+                           class="fa-sharp fa-regular fa-arrow-right-long"></i></a>
+                  </div>
+                  <figure class="td-svc-hero__media">
+                     <img src="assets/img/brand/services/product-engineering.svg" alt="img">
+                  </figure>
+               </div>
+
+               <div class="td-svc-gets">
+                  <div class="td-svc-gets__head">
+                     <h4>What You Get</h4>
+                     <p>What we bring to a product build.</p>
+                  </div>
+                  <ul class="list td-svc-gets__list">
+                                            <li>
+                                                <i class="fa-regular fa-circle-check"></i>
+                                                AI-native products where the intelligence is the feature, not a bolt-on
+                                            </li>
+                                            <li>
+                                                <i class="fa-regular fa-circle-check"></i>
+                                                Working software every fortnight — never a big reveal at the end
+                                            </li>
+                                            <li>
+                                                <i class="fa-regular fa-circle-check"></i>
+                                                All code, designs and documentation assigned to you from creation
+                                            </li>
+                                        </ul>
+               </div>
+
+               <p class="td-svc-closing">We are equally comfortable inheriting something half-built. The first sprint on a takeover goes on making the thing safe to change — environments, a pipeline, enough tests to move confidently — before a single feature gets added on top of it.</p>
+
+               <div class="td-svc-bottom td-svc-bottom--single">
+                  <div class="td-svc-bottom__col td-svc-faq">
+                     <h3>Technical Questions, Answered</h3>
+                     <div class="faq-accordion">
+                        <div class="accordion" id="accordion">
+                                    <div class="accordion-item mb-3">
+                                        <h5 class="accordion-header">
+                                            <button class="accordion-button" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#faq-product-engineering-1"
+                                                aria-expanded="true" aria-controls="faq-product-engineering-1">
+                                                Do you do discovery, or just build?
+                                            </button>
+                                        </h5>
+                                        <div id="faq-product-engineering-1" class="accordion-collapse collapse show"
+                                            data-bs-parent="#accordion">
+                                            <div class="accordion-body">
+                                                Both, and we would rather do the discovery. A fortnight spent agreeing what good looks like routinely saves months of building the wrong thing well.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item mb-3">
+                                        <h5 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#faq-product-engineering-2"
+                                                aria-expanded="false" aria-controls="faq-product-engineering-2">
+                                                Who owns the code?
+                                            </button>
+                                        </h5>
+                                        <div id="faq-product-engineering-2" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordion">
+                                            <div class="accordion-body">
+                                                You do, from the moment it is written. All IP, code, designs and documentation are assigned to you from creation, and the work happens in your repositories and cloud accounts.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item mb-3">
+                                        <h5 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#faq-product-engineering-3"
+                                                aria-expanded="false" aria-controls="faq-product-engineering-3">
+                                                Can you take over an existing codebase?
+                                            </button>
+                                        </h5>
+                                        <div id="faq-product-engineering-3" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordion">
+                                            <div class="accordion-body">
+                                                Yes. We start by making it safe to change — establishing environments, a pipeline and enough test coverage to move confidently — and give you an honest read on what should be kept, refactored or replaced.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item mb-3">
+                                        <h5 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#faq-product-engineering-4"
+                                                aria-expanded="false" aria-controls="faq-product-engineering-4">
+                                                Can you build AI into an existing product?
+                                            </button>
+                                        </h5>
+                                        <div id="faq-product-engineering-4" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordion">
+                                            <div class="accordion-body">
+                                                Usually yes, and it is often the better first move than a rebuild. We look for the one workflow where intelligence removes real manual effort, ship that behind a flag, and measure it. A working feature in one place beats an AI strategy across twelve.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--<< Footer Section Start >>-->
+    
+    <!--<< Terms / Privacy Modal >>-->
+    <div class="td-modal td-legal" id="td-legal" hidden>
+       <div class="td-modal__backdrop" data-td-close></div>
+       <div class="td-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="td-legal-heading">
+          <button type="button" class="td-modal__x" data-td-close aria-label="Close">
+             <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div id="td-legal-heading">
+      <section class="td-legal__panel" id="td-legal-terms" hidden>
+         <p class="td-legal__eyebrow">Legal</p>
+         <h3 class="td-legal__title">Terms &amp; Conditions</h3>
+         <p class="td-legal__updated">Last updated 29 August 2026</p>
+         <div class="td-legal__body">
+               <h4>1. About these terms</h4>
+               <p>This website is operated by TekDex. By browsing it or contacting us through it, you accept these terms. If you do not accept them, please do not use the site.</p>
+               <h4>2. What this site is</h4>
+               <p>The site describes our consulting, engineering and talent services. Nothing on it is an offer capable of acceptance, a quotation, or a commitment to available capacity, timelines or price. Any engagement between us is governed solely by a separate signed agreement, and where that agreement conflicts with these terms, it prevails.</p>
+               <h4>3. Information and advice</h4>
+               <p>Articles, guidance and technical opinions published here are general in nature and are not professional advice for your situation. We take care to keep them accurate but make no warranty that they are complete or current, and you should not act on them without advice specific to your circumstances.</p>
+               <h4>4. Intellectual property</h4>
+               <p>The content, design and code of this site belong to TekDex or its licensors. You may view, download and print pages for your own reference and share links to them. You may not republish, sell or systematically copy any part of the site without our written consent.</p>
+               <p>Third-party names, logos and trademarks shown on this site belong to their respective owners and are used only to describe the technologies we work with. Their appearance does not imply any endorsement, partnership or certification unless we state so explicitly.</p>
+               <h4>5. Careers and applications</h4>
+               <p>Roles listed on the careers page are indicative and may be filled, changed or withdrawn at any time. Submitting an application creates no obligation on either side, and we may not be able to respond to every application individually.</p>
+               <h4>6. Links to other sites</h4>
+               <p>Where we link to a third-party site, we do so for convenience. We do not control those sites and are not responsible for their content, availability or privacy practices.</p>
+               <h4>7. Availability and liability</h4>
+               <p>We aim to keep the site available but do not guarantee uninterrupted access, and we may change or withdraw any part of it without notice. To the fullest extent permitted by law, we exclude liability for any indirect or consequential loss, loss of profit, or loss of data arising from your use of, or inability to use, this site. Nothing here limits liability that cannot lawfully be limited.</p>
+               <h4>8. Changes</h4>
+               <p>We may update these terms from time to time. The version published here is the one that applies, and the date above shows when it last changed.</p>
+               <h4>9. Contact</h4>
+               <p>Questions about these terms can go to <a href="mailto:consultations@tekdexinc.com">consultations@tekdexinc.com</a>.</p>
+         </div>
+      </section>
+
+      <section class="td-legal__panel" id="td-legal-privacy" hidden>
+         <p class="td-legal__eyebrow">Legal</p>
+         <h3 class="td-legal__title">Privacy Policy</h3>
+         <p class="td-legal__updated">Last updated 29 August 2026</p>
+         <div class="td-legal__body">
+               <h4>1. Our approach</h4>
+               <p>This is a static marketing website. It does not run analytics, advertising or tracking scripts, it does not build a profile of you, and it does not sell or share personal data with advertisers.</p>
+               <h4>2. What we collect</h4>
+               <p>We only receive personal information that you choose to send us:</p>
+               <ul>
+                  <li><strong>Enquiries.</strong> The name, email address, service of interest and message you enter in a contact form.</li>
+                  <li><strong>Applications.</strong> The name, email address, current company and CV you send when applying for a role.</li>
+                  <li><strong>Correspondence.</strong> Anything you include when you email us directly.</li>
+               </ul>
+               <p>The forms on this site do not post to a server. When you submit one, your browser opens your own email application with the details filled in — nothing reaches us until you press send there, and you can edit or abandon the message first.</p>
+               <h4>3. Why we use it</h4>
+               <p>To answer your enquiry, to assess your application, and to keep a record of our correspondence with you. We do not use your details for marketing unless you ask us to.</p>
+               <h4>4. How long we keep it</h4>
+               <p>Enquiries are kept for as long as needed to deal with them and for a reasonable period afterwards. Applications are kept for the duration of the hiring process, and for up to twelve months afterwards in case a suitable role opens — unless you ask us to delete them sooner.</p>
+               <h4>5. Who else sees it</h4>
+               <p>Your information is handled by the TekDex people who need it to reply to you or assess your application. We use standard business email and document services to do that, and we may disclose information where the law requires it. We do not sell personal data.</p>
+               <h4>6. Cookies</h4>
+               <p>We do not set analytics, advertising or profiling cookies. Your browser may store limited technical data locally to make the site work; that data stays on your device.</p>
+               <h4>7. Your rights</h4>
+               <p>You can ask us what personal information we hold about you, ask us to correct it, or ask us to delete it. Write to <a href="mailto:consultations@tekdexinc.com">consultations@tekdexinc.com</a> and we will respond within a reasonable period.</p>
+               <h4>8. Security</h4>
+               <p>We take reasonable measures to protect the information you send us. No method of transmission over the internet is completely secure, so please do not send us confidential material, credentials or identification documents through this site.</p>
+               <h4>9. Changes</h4>
+               <p>If we change this policy, the updated version will appear here with a new date.</p>
+         </div>
+      </section>
+          </div>
+          <p class="td-legal__foot">Questions? Email
+             <a href="mailto:consultations@tekdexinc.com">consultations@tekdexinc.com</a>.</p>
+       </div>
+    </div>
+
+    <footer class="footer-area">
+      <div class="widget-area style1  pt-100 pb-80">
+         <div class="container">
+            <div class="footer-layout style1">
+               <div class="row">
+                  <div class="col-xl-4 col-md-6 col-12">
+                     <div class="widget footer-widget wow fadeInUp" data-wow-delay=".6s">
+                        <div class="gt-widget-about">
+                           <div class="about-logo">
+                              <a href="index.html"><img src="assets/img/brand/tekdex-stacked-white.png" alt="TekDex" width="150" height="94"></a>
+                           </div>
+                           <p class="about-text"> TekDex is a technology-driven consulting and engineering company. We build agentic AI, cloud-native platforms and ServiceNow solutions for enterprises worldwide. </p>
+                           <div class="gt-social style2">
+                              <a href="https://www.linkedin.com/company/tekdex" target="_blank" rel="noopener" aria-label="TekDex on LinkedIn" class="td-social"><i class="fab fa-linkedin-in"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-md-6 col-12">
+                     <div class="widget widget_nav_menu footer-widget wow fadeInUp" data-wow-delay="1s">
+                        <h3 class="widget_title">Quick Links</h3>
+                        <div class="menu-all-pages-container">
+                           <ul class="menu">
+                              <li><a href="about.html"><i class="fa-solid fa-chevrons-right"></i>About TekDex</a>
+                              </li>
+                              <li><a href="service.html"><i class="fa-solid fa-chevrons-right"></i>Our Services</a>
+                              </li>
+                              <li><a href="news.html"><i class="fa-solid fa-chevrons-right"></i>Insights</a>
+                              </li>
+                              <li><a href="faq.html"><i class="fa-solid fa-chevrons-right"></i>FAQs</a></li>
+                              <li><a href="contact.html"><i class="fa-solid fa-chevrons-right"></i>Contact Us</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="col-xl-5 col-md-12 col-12">
+                     <div class="widget widget_nav_menu footer-widget wow fadeInUp" data-wow-delay="1.6s">
+                        <h3 class="widget_title">Contact Us</h3>
+                        <div class="checklist style2">
+                           <ul class="ps-0">
+                              <li class="text-white"><i class="fa-solid fa-envelope"></i></li>
+                              <li class="text-white">consultations@tekdexinc.com</li>
+                           </ul>
+                           
+                           <div class="email-input-container">
+                              <input type="email" id="email" placeholder="Your email address" required="">
+                              <button type="submit" id="submitButton" disabled=""><i
+                                    class="fa-regular fa-arrow-right-long"></i></button>
+                           </div>
+                           <form id="termsForm">
+                              <label class="custom-checkbox">
+                                 <input type="checkbox" name="agree" id="agreeCheckbox">
+                                 <span class="checkmark"></span>
+                                 I agree to the <a href="#" class="text-underline"  data-td-legal="privacy">Privacy
+                                    Policy.</a>
+                              </label>
+                              <br>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="copyright-wrap bg-theme">
+         <div class="container">
+            <div class="copyright-layout">
+               <div class="layout-text wow fadeInUp" data-wow-delay=".3s">
+                  <p class="copyright">
+                     <i class="fal fa-copyright"></i> 2026 <a href="index.html">TekDex Inc</a>. All rights reserved
+                  </p>
+               </div>
+               <div class="layout-link wow fadeInUp" data-wow-delay=".6s">
+                  <div class="link-wrapper">
+                     <a href="#"  data-td-legal="terms">Terms &amp; Condition</a>
+                     <a href="#"  data-td-legal="privacy">Privacy Policy</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+
+    <!--<< All JS Plugins >>-->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <!--<< Viewport Js >>-->
+    <script src="assets/js/viewport.jquery.js"></script>
+    <!--<< Bootstrap Js >>-->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!--<< Waypoints Js >>-->
+    <script src="assets/js/jquery.waypoints.js"></script>
+    <!--<< Counterup Js >>-->
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <!--<< Swiper Slider Js >>-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!--<< MeanMenu Js >>-->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!--<< Magnific Popup Js >>-->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!--<< Wow Animation Js >>-->
+    <script src="assets/js/wow.min.js"></script>
+    <!--<< Main.js >>-->
+    <script src="assets/js/main.js?v=1788005436"></script>
+    <script src="assets/js/tekdex-forms.js?v=1788005436"></script>
+</body>
+
+</html>

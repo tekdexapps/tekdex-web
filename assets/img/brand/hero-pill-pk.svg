@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 69" width="140" height="69">
+<defs><filter id="s" x="-30%" y="-30%" width="160%" height="180%">
+<feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.22"/></filter></defs>
+<g filter="url(#s)">
+<rect x="6" y="23.5" width="116" height="34" rx="17.0" fill="#F36B21"/>
+<circle cx="21" cy="40.5" r="3.6" fill="#FFFFFF"/>
+<text x="30" y="45.5" font-family="'Plus Jakarta Sans', system-ui, sans-serif"
+ font-size="14" font-weight="600" fill="#FFFFFF">Islamabad</text>
+</g>
+<g transform="translate(6,4) rotate(-24)"><path d="M0,0 L20,7.5 L11.4,11.4 L7.5,20 Z" fill="#FFFFFF" stroke="#12141A" stroke-width="1.6" stroke-linejoin="round"/></g>
+</svg>

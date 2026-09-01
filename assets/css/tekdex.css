@@ -1,0 +1,3370 @@
+/* ==========================================================================
+   TekDex — brand overrides and custom components.
+   Loaded last, after main.css. Keep all bespoke work here so the vendor
+   template stylesheets stay untouched and upgradeable.
+   ========================================================================== */
+
+:root {
+  --td-orange: #F36B21;
+  /* logo orange */
+  --td-orange-2: #F58A4E;
+  /* lighter tint */
+  --td-gray: #808184;
+  /* logo gray */
+  --td-ink: #12141A;
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.hero-content.style1 .hero-lead {
+  max-width: 34em;
+  margin: 18px 0 4px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* Engagement chooser — three engagement types, priced by unit. */
+.hero-tracks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 34px;
+}
+
+.hero-track {
+  flex: 1 1 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 13px 16px 14px;
+  border: 1px solid rgba(255, 255, 255, .26);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .07);
+  text-decoration: none;
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+.hero-track:hover,
+.hero-track:focus-visible {
+  background: rgba(255, 255, 255, .16);
+  border-color: rgba(255, 255, 255, .6);
+  transform: translateY(-2px);
+}
+
+.hero-track__unit {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .62);
+}
+
+.hero-track__label {
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.hero-track__label::after {
+  content: " \2192";
+  opacity: .65;
+}
+
+/* The hero visual is an SVG now — let it fill its column cleanly. */
+.hero-thumb.style1 .main-thumb img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 575px) {
+  .hero-tracks {
+    gap: 8px;
+  }
+
+  .hero-track {
+    flex: 1 1 100%;
+    padding: 12px 14px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Header logo — the lockup is 4.4:1; stop the template squashing it.
+   -------------------------------------------------------------------------- */
+
+.header-logo img,
+.footer-logo img,
+.logo img {
+  width: auto;
+  max-width: 176px;
+  height: auto;
+  max-height: 40px;
+  object-fit: contain;
+}
+
+/* --------------------------------------------------------------------------
+   Technology strip — logo mark + name.
+   Marks live in assets/img/brand/stack/. Swap in a vendor's official SVG over
+   the same filename and this picks it up with no other change.
+   -------------------------------------------------------------------------- */
+
+.td-tech-section {
+  padding: 54px 0 46px;
+}
+
+/* The strip drew two stacked hairlines 47px apart — one from the template's
+   .brand-slider-container-wrapper, one of ours. Both go. */
+.brand-slider-container-wrapper.style1 {
+  border-bottom: 0;
+}
+
+.td-tech-caption {
+  margin: 0 0 30px;
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--td-gray);
+}
+
+.td-tech {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 60px;
+  opacity: .78;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.td-tech__mark {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+}
+
+.td-tech__name {
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -.005em;
+  white-space: nowrap;
+  color: var(--title-color, #12141A);
+}
+
+.td-tech:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.td-tech:hover .td-tech__name {
+  color: var(--td-orange);
+}
+
+@media (max-width: 575px) {
+  .td-tech__name {
+    font-size: 19px;
+  }
+
+  .td-tech__mark {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Engagement models — replaces the template's hosting price tiers.
+   -------------------------------------------------------------------------- */
+
+.td-model-note {
+  max-width: 44em;
+  margin: 14px auto 0;
+  text-align: center;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--td-gray);
+}
+
+/* No prices here, so the "price" slot carries the billing unit instead. */
+.pricing-card.style1 .price .td-model-unit {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  color: var(--td-orange);
+  margin: 0;
+}
+
+.pricing-card.style1 .checklist.style1 {
+  margin-bottom: 0;
+}
+
+.pricing-card.style1 .checklist-wrapper {
+  margin-bottom: 26px;
+}
+
+/* --------------------------------------------------------------------------
+   Location card — replaces the keyless Google Maps iframe, which no longer
+   renders reliably and loaded third-party tracking on every page view.
+   -------------------------------------------------------------------------- */
+
+.td-location {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 28px 32px;
+  margin: 0 0 10px;
+  border: 1px solid var(--border-color, #e8e0dc);
+  border-radius: 18px;
+  background: #FAFBFC;
+  text-decoration: none;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.td-location:hover,
+.td-location:focus-visible {
+  border-color: var(--td-orange);
+  box-shadow: 0 10px 30px rgba(243, 107, 33, .12);
+  transform: translateY(-2px);
+}
+
+.td-location__pin {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--td-orange);
+  color: #fff;
+  font-size: 21px;
+}
+
+.td-location__body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.td-location__label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--td-gray);
+}
+
+.td-location__addr {
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--title-color, #000);
+}
+
+.td-location__cta {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--td-orange);
+}
+
+@media (max-width: 575px) {
+  .td-location {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+  }
+}
+
+/* Contact-form status message (see assets/js/tekdex-forms.js). */
+.td-form-note {
+  width: 100%;
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(243, 107, 33, .08);
+  border: 1px solid rgba(243, 107, 33, .28);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--title-color, #12141A);
+}
+
+.td-form-note.is-error {
+  background: rgba(200, 40, 40, .07);
+  border-color: rgba(200, 40, 40, .3);
+}
+
+/* --------------------------------------------------------------------------
+   Strategic pillars — replaces the template's two capability chips.
+   -------------------------------------------------------------------------- */
+
+.td-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 30px 0 34px;
+  counter-reset: pillar;
+}
+
+.td-pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 24px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .05);
+  counter-increment: pillar;
+  transition: all 0.3s ease;
+}
+
+.td-pillar:last-child {
+  border: 1px solid rgba(255, 255, 255, .18);
+}
+
+.td-pillar__num {
+  flex: 0 0 auto;
+  width: 30px;
+  padding-top: 3px;
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: rgba(255, 255, 255, .55);
+}
+
+.td-pillar__num::before {
+  content: counter(pillar, decimal-leading-zero);
+}
+
+.td-pillar__body h6 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.td-pillar__body p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, .78);
+}
+
+@media (max-width: 575px) {
+  .td-pillar {
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 12px;
+  }
+
+  .td-pillar__num {
+    width: 24px;
+    font-size: 13px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Compact CTA bar — replaces the full-width band that dominated the page.
+   -------------------------------------------------------------------------- */
+
+.td-cta-bar {
+  padding: 10px 0 70px;
+}
+
+.td-cta-bar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 30px;
+  border: 1px solid var(--border-color, #e8e0dc);
+  border-radius: 16px;
+  background: #FAFBFC;
+}
+
+.td-cta-bar__text {
+  margin: 0;
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--title-color, #12141A);
+}
+
+.td-cta-bar__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  background: var(--td-orange);
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.td-cta-bar__btn:hover,
+.td-cta-bar__btn:focus-visible {
+  background: #12141A;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 575px) {
+  .td-cta-bar__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .td-cta-bar__text {
+    font-size: 19px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Insights — compact list. Deliberately low-weight: it earns a place on the
+   page without competing with the services and pillars above it.
+   -------------------------------------------------------------------------- */
+
+/* The homepage ran light the whole way down and this section disappeared into
+   it. Dark ground, so it reads as its own thing and echoes the article pages. */
+.td-insights {
+  padding: 84px 0 88px;
+  margin-top: 40px;
+  background:
+    radial-gradient(80% 120% at 88% 0%, rgba(243, 107, 33, .22), transparent 62%),
+    linear-gradient(158deg, #1B1F27 0%, #0B0D12 100%);
+}
+
+.td-insights .td-insights__title {
+  color: #fff;
+}
+
+.td-insights__eyebrow {
+  color: var(--td-orange);
+}
+
+.td-insights__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.td-insights__title {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--title-color, #12141A);
+}
+
+.td-insights__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--td-orange);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.td-insights__all {
+  color: rgba(255, 255, 255, .72);
+}
+
+.td-insights__all:hover {
+  color: var(--td-orange);
+}
+
+.td-insights__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.td-insight {
+  display: grid;
+  grid-template-columns: 210px 1fr 32px;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 4px;
+  border-top: 1px solid rgba(255, 255, 255, .13);
+  text-decoration: none;
+  transition: background .22s ease, padding .22s ease;
+}
+
+.td-insight:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, .13);
+}
+
+.td-insight:hover,
+.td-insight:focus-visible {
+  background: rgba(255, 255, 255, .055);
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.td-insight__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.td-insight__tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--td-orange);
+}
+
+.td-insight__date {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .55);
+}
+
+.td-insight__title {
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.td-insight:hover .td-insight__title {
+  color: var(--td-orange);
+}
+
+.td-insight__go {
+  color: rgba(255, 255, 255, .45);
+  text-align: right;
+}
+
+.td-insight:hover .td-insight__go {
+  color: var(--td-orange);
+}
+
+@media (max-width: 767px) {
+  .td-insights {
+    padding: 64px 0 6px;
+  }
+
+  .td-insight {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 18px 4px;
+  }
+
+  .td-insight__meta {
+    flex-direction: row;
+    gap: 12px;
+    align-items: baseline;
+  }
+
+  .td-insight__go {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Core values — editorial grid, dark band. Numbers are generated, so reordering
+   the markup renumbers automatically.
+   -------------------------------------------------------------------------- */
+
+.td-values {
+  padding: 104px 0;
+  background: linear-gradient(180deg, #090B0F 0%, #101319 100%);
+  counter-reset: value;
+}
+
+.td-values__head {
+  text-align: center;
+  margin-bottom: 54px;
+}
+
+.td-values__head .subtitle span {
+  color: var(--td-orange);
+}
+
+.td-values__title {
+  margin: 14px 0 0;
+  font-size: clamp(30px, 3.6vw, 46px);
+  font-weight: 700;
+  line-height: 1.12;
+  color: #fff;
+}
+
+.td-values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, .11);
+  border: 1px solid rgba(255, 255, 255, .11);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.td-value {
+  position: relative;
+  padding: 34px 30px 38px;
+  /* A touch lighter than the section, and very slightly warm, so each cell
+     reads as its own panel instead of one continuous slab. */
+  background: linear-gradient(158deg, #171B23 0%, #11141A 100%);
+  counter-increment: value;
+  transition: background .28s ease;
+}
+
+/* Orange edge that arrives on hover rather than sitting there permanently. */
+.td-value::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--td-orange), rgba(243, 107, 33, 0) 78%);
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+
+.td-value:hover {
+  background: linear-gradient(158deg, #1E232E 0%, #161A22 100%);
+}
+
+.td-value:hover::before {
+  opacity: 1;
+}
+
+.td-value__num {
+  display: block;
+  margin-bottom: 16px;
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--td-orange);
+}
+
+.td-value__num::before {
+  content: counter(value, decimal-leading-zero);
+}
+
+.td-value__title {
+  margin: 0 0 10px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.td-value__body {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.66;
+  color: #A8AEBB;
+}
+
+@media (max-width: 991px) {
+  .td-values {
+    padding: 72px 0;
+  }
+
+  .td-values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .td-values__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .td-value {
+    padding: 26px 22px 30px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Delivery process — the template ran this on --theme2 directly under the
+   orange About band, which read as one long orange slab with low-contrast
+   text. Now a light band with a step rule where the numerals used to be.
+   -------------------------------------------------------------------------- */
+
+.work-process-section.bg-theme-color2 {
+  background: #F7F8FA;
+}
+
+.work-process-card.style1 {
+  position: relative;
+  padding-top: 26px;
+}
+
+/* the rule that replaces the dropped 01/02/03/04 */
+.work-process-card.style1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--td-orange);
+  transition: width .3s ease;
+}
+
+.work-process-card.style1:hover::before {
+  width: 74px;
+}
+
+.work-process-card.style1 .title {
+  color: var(--title-color, #12141A);
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: 25px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.work-process-card.style1 .text {
+  color: #55585F;
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+.work-process-card.style1.active .title {
+  color: var(--td-orange);
+}
+
+/* --------------------------------------------------------------------------
+   Hero visual sizing. The artwork is a tall 473x811, which swamps a phone
+   screen when the template stacks it above the copy — cap it and let the
+   headline lead.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1199px) {
+  .hero-thumb.style1 .main-thumb img {
+    max-height: 340px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .hero-thumb.style1 {
+    padding: 10px 0 26px;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-thumb.style1 .main-thumb img {
+    max-height: 250px;
+  }
+
+  .hero-content.style1 .hero-lead {
+    font-size: 15.5px;
+  }
+}
+
+/* Mobile hero: the template's h1 runs to the edge and the panel opens with a
+   large empty band above the artwork. Tighten both. */
+@media (max-width: 767px) {
+  .hero-content.style1 h1 {
+    font-size: clamp(32px, 8.6vw, 46px);
+    line-height: 1.1;
+  }
+
+  .hero-main-container.style1 {
+    padding-top: 22px;
+    padding-bottom: 30px;
+  }
+
+  .hero-thumb.style1 {
+    padding: 0 0 18px;
+  }
+
+  .hero-content.style1 .hero-lead {
+    margin-top: 14px;
+  }
+}
+
+/* main.css hides every <br> under 575px so template copy can rewrap. The hero
+   headline is set as two deliberate lines, so put its break back — without it
+   the words run together ("Engineered.Talent,"). */
+@media (max-width: 575px) {
+  .hero-content.style1 h1 br {
+    display: block;
+  }
+}
+
+/* The template stacks `space` padding on both the section and its inner
+   wrapper, which left ~240px of empty band above the four delivery steps. */
+.work-process-section.space {
+  padding-top: 0;
+  padding-bottom: 70px;
+}
+
+.work-process-wrapper.style1.space {
+  padding-top: 78px;
+}
+
+/* --------------------------------------------------------------------------
+   Footer — the template ran pt-100/pb-80 over four wide columns. With only
+   three columns of content it read as a large empty slab, so this tightens the
+   whole block and pulls the columns closer together.
+   -------------------------------------------------------------------------- */
+
+.footer-area .widget-area.style1 {
+  padding-top: 56px !important;
+  padding-bottom: 34px !important;
+}
+
+.footer-area .footer-widget {
+  padding-top: 0 !important;
+}
+
+.footer-area .footer-widget .widget_title,
+.footer-area .footer-widget h3 {
+  margin-bottom: 16px;
+  font-size: 19px;
+}
+
+.footer-area .about-text {
+  max-width: 30em;
+  margin-bottom: 18px;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.footer-area .footer-widget ul li {
+  margin-bottom: 8px;
+}
+
+/* one-colour reversed logo, sized so it actually reads on the orange */
+.footer-area .footer-logo {
+  margin-bottom: 16px;
+}
+
+.footer-area .footer-logo img {
+  width: 190px;
+  max-width: 190px;
+  height: auto;
+  max-height: none;
+}
+
+/* single social link now — give it room to breathe rather than a row of chips */
+.footer-area .gt-social,
+.footer-area .social-icon {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.footer-area .gt-social a,
+.footer-area .social-icon a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 10px;
+  color: #fff;
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+.footer-area .gt-social a:hover,
+.footer-area .social-icon a:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--td-orange);
+}
+
+.footer-area .copyright-wrap,
+.footer-area .copyright-layout {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+@media (max-width: 991px) {
+  .footer-area .widget-area.style1 {
+    padding-top: 44px !important;
+    padding-bottom: 26px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Inner-page banner — the template used padding:180px 0, which produced a
+   ~460px slab on every page. Compact now, and the artwork behind it animates.
+   -------------------------------------------------------------------------- */
+
+.breadcrumb-wrapper .page-heading {
+  padding: 74px 0 66px;
+}
+
+.breadcrumb-wrapper .page-heading h1 {
+  font-size: clamp(34px, 4.4vw, 54px);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.breadcrumb-wrapper .breadcrumb-items {
+  margin-top: 12px;
+}
+
+.breadcrumb-wrapper .breadcrumb-items li,
+.breadcrumb-wrapper .breadcrumb-items li a {
+  font-size: 14.5px;
+}
+
+@media (max-width: 991px) {
+  .breadcrumb-wrapper .page-heading {
+    padding: 54px 0 48px;
+  }
+}
+
+@media (max-width: 575px) {
+  .breadcrumb-wrapper .page-heading {
+    padding: 42px 0 38px;
+  }
+}
+
+/* Footer uses the stacked lockup — more presence in a column than the
+   horizontal one, which is kept for the header where width is tight. */
+.footer-area .footer-logo img {
+  width: 150px;
+  max-width: 150px;
+  height: auto;
+  max-height: none;
+}
+
+/* --------------------------------------------------------------------------
+   Office slideshow (About page).
+   Four renders crossfade with a slow Ken Burns push. Timing is driven off two
+   custom properties so the cadence can be retuned in one place; each slide
+   offsets itself with --i, so adding a fifth means updating --td-shots-count
+   and the keyframe percentages only.
+   -------------------------------------------------------------------------- */
+
+.td-shots {
+  --td-shots-count: 4;
+  --td-shots-each: 6s;
+  /* time per slide */
+  --td-shots-cycle: calc(var(--td-shots-each) * var(--td-shots-count));
+  max-width: 100%;
+  width: 100%;
+  height: 430px;
+  position: relative;
+  border-radius: 18px;
+  overflow: visible;
+  /* the inset overhangs */
+  background: none;
+}
+
+.td-shots__stage {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #12141A;
+  box-shadow: 0 18px 50px rgba(18, 20, 26, .18);
+}
+
+.td-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: tdShotFade var(--td-shots-cycle) linear infinite;
+  animation-delay: calc(var(--i) * var(--td-shots-each));
+}
+
+.td-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: tdShotZoom var(--td-shots-cycle) ease-out infinite;
+  animation-delay: calc(var(--i) * var(--td-shots-each));
+}
+
+/* 4 slides => each holds 25% of the cycle, with a short crossfade either side */
+@keyframes tdShotFade {
+  0% {
+    opacity: 0;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes tdShotZoom {
+  0% {
+    transform: scale(1.02);
+  }
+
+  30% {
+    transform: scale(1.09);
+  }
+
+  100% {
+    transform: scale(1.09);
+  }
+}
+
+/* the floating inset — same set, two slides ahead, so it never matches */
+.td-shots-inset .td-shots__stage {
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+/* the pillars badge sits over photography now — give it a lift off the image */
+.about-image-items .counter-shape {
+  box-shadow: 0 14px 34px rgba(18, 20, 26, .26);
+  z-index: 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .td-slide,
+  .td-slide img {
+    animation: none;
+  }
+
+  .td-slide {
+    opacity: 0;
+  }
+
+  .td-slide[style*="--i:0"] {
+    opacity: 1;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Fixes found in mobile testing.
+   1. The template floats the header over the top of the breadcrumb banner. Once
+      the banner was shortened, the page title ended up underneath it on small
+      screens — so the heading needs enough top padding to clear the header.
+   2. main.css targets .about-image-1 / .about-image-2 with rules that beat a
+      single-class selector, so the slideshow sizing is restated at higher
+      specificity rather than with !important.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+  .breadcrumb-wrapper .page-heading {
+    padding: 118px 0 48px;
+  }
+}
+
+@media (max-width: 575px) {
+  .breadcrumb-wrapper .page-heading {
+    padding: 112px 0 38px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Office slideshow geometry.
+   main.css positions these through `.about-wrapper.style-2 .about-image-items
+   .about-image-1 .about-image-2` — specificity (0,5,0), with right:-40% which
+   threw the inset into the copy column. Matching that depth here (and loading
+   later) wins the cascade cleanly, without !important.
+   -------------------------------------------------------------------------- */
+
+.about-wrapper .about-image-items .about-image-1.td-shots {
+  max-width: 100%;
+  width: 100%;
+  height: 430px;
+}
+
+.about-wrapper .about-image-items .about-image-1 .about-image-2.td-shots-inset {
+  position: absolute;
+  width: 230px;
+  height: 158px;
+  top: auto;
+  left: auto;
+  right: 18px;
+  bottom: -30px;
+}
+
+@media (max-width: 991px) {
+  .about-wrapper .about-image-items .about-image-1.td-shots {
+    height: 380px;
+  }
+
+  .about-wrapper .about-image-items .about-image-1 .about-image-2.td-shots-inset {
+    width: 180px;
+    height: 124px;
+    right: 14px;
+    bottom: -24px;
+  }
+}
+
+@media (max-width: 575px) {
+  .about-wrapper .about-image-items .about-image-1.td-shots {
+    height: 260px;
+  }
+
+  .about-wrapper .about-image-items .about-image-1 .about-image-2.td-shots-inset {
+    width: 128px;
+    height: 88px;
+    border-width: 6px;
+    right: 10px;
+    bottom: -18px;
+  }
+}
+
+/* Inline text link (used on the Engagement page to reach the engagement
+   walk-through, which is no longer a service card destination). */
+.td-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 6px;
+  font-weight: 600;
+  color: var(--td-orange);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.td-inline-link:hover,
+.td-inline-link:focus-visible {
+  color: var(--title-color, #12141A);
+}
+
+/* --------------------------------------------------------------------------
+   Service detail pages — the hero panel was dominating the fold and pushing
+   the actual description below it. Capped and centred so it illustrates the
+   service rather than leading the page, with the title and copy given room.
+   -------------------------------------------------------------------------- */
+
+.service-details-items .details-image img,
+.service-details-items>.details-image img {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 16px 44px rgba(18, 20, 26, .16);
+}
+
+.service-details-items .details-content {
+  margin-top: 30px;
+}
+
+.service-details-items .details-content h3 {
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.service-details-items .details-content>p {
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.service-details-items .details-content h4 {
+  margin-top: 8px;
+  font-size: 22px;
+}
+
+@media (max-width: 767px) {
+  .service-details-items .details-image img {
+    max-width: 100%;
+  }
+
+  .service-details-items .details-content {
+    margin-top: 22px;
+  }
+}
+
+/* Removing the sub-images left the closing paragraph butting straight into the
+   Common Questions heading. */
+.service-details-items .details-content h3+p {
+  margin-bottom: 0;
+}
+
+.service-details-items .details-content>p:last-of-type {
+  margin-bottom: 0;
+}
+
+.service-details-items .details-content>h3:not(:first-child) {
+  margin-top: 42px;
+}
+
+.service-details-items .details-content .details-video-items {
+  margin: 30px 0 26px;
+}
+
+.service-details-items .details-content .list li {
+  margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   SERVICE DETAIL PAGES
+   Side-by-side hero (tinted copy panel + mockup), then What You Get, then the
+   FAQ paired with an enquiry form. Each page sets --svc-a / --svc-b inline for
+   its own hue; orange stays the single accent throughout.
+   ========================================================================== */
+
+.td-svc {
+  --svc-a: #1B1E29;
+  --svc-b: #0E1016;
+}
+
+/* ---------- hero ---------- */
+
+.td-svc-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: stretch;
+  gap: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 22px 60px rgba(18, 20, 26, .18);
+}
+
+.td-svc-hero__copy {
+  padding: 44px 42px 46px;
+  background: linear-gradient(155deg, var(--svc-a) 0%, var(--svc-b) 100%);
+  position: relative;
+}
+
+/* a warm bloom so the tinted panel still reads as TekDex */
+.td-svc-hero__copy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 8% 0%, rgba(243, 107, 33, .22), transparent 62%);
+  pointer-events: none;
+}
+
+.td-svc-hero__copy>* {
+  position: relative;
+  z-index: 1;
+}
+
+.td-svc-hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(243, 107, 33, .18);
+  border: 1px solid rgba(243, 107, 33, .42);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--td-orange-2, #F58A4E);
+}
+
+.td-svc-hero__title {
+  margin: 0 0 18px;
+  font-size: clamp(27px, 2.5vw, 36px);
+  line-height: 1.16;
+  color: #fff;
+}
+
+.td-svc-hero__copy p {
+  margin: 0 0 14px;
+  font-size: 15.2px;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, .78);
+}
+
+.td-svc-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--td-orange);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.td-svc-hero__cta:hover,
+.td-svc-hero__cta:focus-visible {
+  background: #fff;
+  color: var(--svc-b);
+  transform: translateY(-2px);
+}
+
+.td-svc-hero__media {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px;
+  background: linear-gradient(200deg, var(--svc-b) 0%, #06070A 100%);
+}
+
+.td-svc-hero__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, .45);
+}
+
+/* ---------- what you get ---------- */
+
+.td-svc-gets {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 34px;
+  margin: 44px 0 30px;
+  padding: 30px 32px;
+  border: 1px solid var(--border-color, #e8e0dc);
+  border-left: 4px solid var(--td-orange);
+  border-radius: 14px;
+  background: #FAFBFC;
+}
+
+.td-svc-gets__head h4 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.td-svc-gets__head p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--td-gray);
+}
+
+.td-svc-gets__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.td-svc-gets__list li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 30px;
+  font-size: 15.4px;
+  line-height: 1.6;
+}
+
+.td-svc-gets__list li:last-child {
+  margin-bottom: 0;
+}
+
+.td-svc-gets__list li i {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  color: var(--td-orange);
+}
+
+.td-svc-closing {
+  margin: 0 0 52px;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* ---------- FAQ beside the enquiry form ---------- */
+
+.td-svc-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 28px;
+  align-items: stretch;
+  /* both columns end on the same line */
+}
+
+.td-svc-bottom__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.td-svc-bottom .faq-accordion {
+  flex: 1 1 auto;
+}
+
+.td-svc-bottom form {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.td-svc-bottom form .row {
+  flex: 1 1 auto;
+  align-content: start;
+}
+
+/* Detail pages moved the form into the sidebar, so the FAQ runs full width. */
+.td-svc-bottom--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.td-svc-bottom__col {
+  min-width: 0;
+}
+
+.td-svc-bottom h3 {
+  margin: 0 0 18px;
+  font-size: clamp(22px, 2vw, 27px);
+  line-height: 1.2;
+}
+
+.td-svc-form {
+  padding: 30px 30px 34px;
+  border-radius: 18px;
+  background: linear-gradient(160deg, var(--svc-a) 0%, var(--svc-b) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.td-svc-form::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(110% 80% at 100% 0%, rgba(243, 107, 33, .20), transparent 60%);
+  pointer-events: none;
+}
+
+.td-svc-form>* {
+  position: relative;
+  z-index: 1;
+}
+
+.td-svc-form h3 {
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.td-svc-form__note {
+  margin: 0 0 20px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, .62);
+}
+
+.td-svc-form .form-clt {
+  margin-bottom: 14px;
+}
+
+.td-svc-form .form-clt span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .6);
+}
+
+.td-svc-form input,
+.td-svc-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .06);
+  color: #fff;
+  font-size: 14.5px;
+  transition: border-color .2s ease, background .2s ease;
+}
+
+.td-svc-form textarea {
+  min-height: 104px;
+  resize: vertical;
+}
+
+.td-svc-form input::placeholder,
+.td-svc-form textarea::placeholder {
+  color: rgba(255, 255, 255, .34);
+}
+
+.td-svc-form input:focus,
+.td-svc-form textarea:focus {
+  outline: none;
+  border-color: var(--td-orange);
+  background: rgba(255, 255, 255, .10);
+}
+
+.td-svc-form__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  padding: 13px 28px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--td-orange);
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.td-svc-form__btn:hover {
+  background: #fff;
+  color: var(--svc-b);
+  transform: translateY(-2px);
+}
+
+.td-svc-form .td-form-note {
+  background: rgba(255, 255, 255, .10);
+  border-color: rgba(255, 255, 255, .28);
+  color: #fff;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1199px) {
+  .td-svc-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .td-svc-hero__media {
+    padding: 22px;
+  }
+
+  .td-svc-bottom {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+}
+
+@media (max-width: 767px) {
+  .td-svc-hero__copy {
+    padding: 30px 24px 32px;
+  }
+
+  .td-svc-gets {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 24px 22px;
+  }
+
+  .td-svc-form {
+    padding: 24px 22px 28px;
+  }
+}
+
+/* main.css styles `.list li` white for use on dark sections; the What You Get
+   panel is light, so the text was white-on-white. */
+.td-svc-gets__list li,
+.td-svc-gets__list li a {
+  color: var(--title-color, #12141A);
+}
+
+.td-svc-gets__list li i {
+  color: var(--td-orange);
+}
+
+/* The merged FAQ + enquiry row on service.html reuses the detail-page markup,
+   so it only needs its own section padding and the eyebrow styling. */
+.td-svc-merged {
+  padding-top: 20px;
+}
+
+.td-svc-merged .subtitle {
+  margin-bottom: 10px;
+}
+
+.td-svc-merged .subtitle span {
+  color: var(--td-orange);
+}
+
+/* service.html's form keeps the template's two-column field grid; make sure the
+   labels and fields read on the dark card the same way the detail pages do. */
+.td-svc-form .contact-form-items .form-clt span {
+  color: rgba(255, 255, 255, .6);
+}
+
+.td-svc-form .contact-form-items input,
+.td-svc-form .contact-form-items textarea {
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 10px;
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Bootstrap's own accordion defaults were showing through on expanded FAQ
+   items — #CFE2FF background with #052C65 text, plus a blue focus ring. That
+   came from bootstrap.min.css, not the template stylesheet, so the earlier
+   colour sweep never touched it. Re-point the component's variables at the
+   brand palette rather than fighting individual rules.
+   -------------------------------------------------------------------------- */
+
+.accordion {
+  --bs-accordion-active-bg: rgba(243, 107, 33, .10);
+  --bs-accordion-active-color: var(--td-orange);
+  --bs-accordion-btn-focus-border-color: rgba(243, 107, 33, .45);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 .2rem rgba(243, 107, 33, .18);
+  --bs-accordion-border-color: var(--border-color, #e8e0dc);
+  --bs-accordion-btn-color: var(--title-color, #12141A);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: rgba(243, 107, 33, .10);
+  color: var(--td-orange);
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  border-color: rgba(243, 107, 33, .45);
+  box-shadow: 0 0 0 .2rem rgba(243, 107, 33, .18);
+}
+
+/* the default chevron is a blue data-URI; tint it with a filter instead of
+   shipping a replacement asset */
+.accordion-button:not(.collapsed)::after {
+  filter: hue-rotate(-185deg) saturate(2.4);
+}
+
+/* ==========================================================================
+   ARTICLE PAGES (insight-*.html)
+   Dark hero, artwork overlapping into the body, generous measure, and typed
+   blocks — subhead, pull quote, callout, kicker — so a long read has rhythm.
+   ========================================================================== */
+
+.td-art__progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 999;
+  background: transparent;
+  pointer-events: none;
+}
+
+.td-art__progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--td-orange), var(--td-orange-2));
+  transition: width .08s linear;
+}
+
+/* ---------- hero ---------- */
+
+.td-art__hero {
+  padding: 118px 0 150px;
+  background:
+    radial-gradient(90% 120% at 82% 0%, rgba(243, 107, 33, .30), transparent 62%),
+    linear-gradient(160deg, #1B1F27 0%, #0B0D12 100%);
+  color: #fff;
+}
+
+.td-art__crumbs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 22px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, .5);
+}
+
+.td-art__crumbs a {
+  color: rgba(255, 255, 255, .72);
+  text-decoration: none;
+}
+
+.td-art__crumbs a:hover {
+  color: var(--td-orange-2);
+}
+
+.td-art__tag {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(243, 107, 33, .18);
+  border: 1px solid rgba(243, 107, 33, .45);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--td-orange-2);
+}
+
+.td-art__title {
+  max-width: 17ch;
+  margin: 0 0 22px;
+  font-size: clamp(34px, 5.2vw, 64px);
+  line-height: 1.06;
+  letter-spacing: -.01em;
+  color: #fff;
+}
+
+.td-art__stand {
+  max-width: 62ch;
+  margin: 0 0 30px;
+  font-size: clamp(17px, 1.7vw, 21px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, .74);
+}
+
+.td-art__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin: 0;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, .55);
+}
+
+.td-art__meta span {
+  position: relative;
+}
+
+.td-art__meta span:first-child {
+  color: var(--td-orange-2);
+  font-weight: 600;
+}
+
+/* ---------- artwork, pulled up over the hero edge ---------- */
+
+.td-art__figure {
+  margin: -110px 0 0;
+}
+
+.td-art__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 30px 70px rgba(12, 14, 18, .32);
+}
+
+/* ---------- body ---------- */
+
+.td-art__body {
+  max-width: 74ch;
+  margin: 62px auto 0;
+  font-size: 17.5px;
+  line-height: 1.78;
+  color: #2B2F36;
+}
+
+.td-art__body>p {
+  margin: 0 0 26px;
+}
+
+.td-art__body>p:first-child::first-letter {
+  float: left;
+  margin: 8px 12px 0 0;
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: 68px;
+  line-height: .78;
+  font-weight: 700;
+  color: var(--td-orange);
+}
+
+.td-art__h {
+  margin: 46px 0 18px;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.25;
+  color: var(--title-color, #12141A);
+}
+
+.td-art__h::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-bottom: 16px;
+  border-radius: 2px;
+  background: var(--td-orange);
+}
+
+.td-art__quote {
+  margin: 40px 0;
+  padding: 4px 0 4px 28px;
+  border-left: 4px solid var(--td-orange);
+}
+
+.td-art__quote p {
+  margin: 0;
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: clamp(22px, 2.3vw, 29px);
+  font-weight: 600;
+  line-height: 1.34;
+  color: var(--title-color, #12141A);
+}
+
+.td-art__callout {
+  margin: 36px 0;
+  padding: 26px 30px;
+  border-radius: 14px;
+  background: linear-gradient(150deg, rgba(243, 107, 33, .10), rgba(243, 107, 33, .04));
+  border: 1px solid rgba(243, 107, 33, .30);
+}
+
+.td-art__callout p {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: #23262C;
+}
+
+.td-art__list {
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.td-art__list li {
+  position: relative;
+  margin-bottom: 13px;
+  padding-left: 30px;
+  line-height: 1.68;
+}
+
+.td-art__list li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--td-orange);
+}
+
+.td-art__kicker {
+  margin: 40px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--border-color, #e8e0dc);
+  font-size: 19px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--title-color, #12141A);
+}
+
+/* ---------- CTA + more ---------- */
+
+.td-art__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 74ch;
+  margin: 56px auto 0;
+  padding: 30px 34px;
+  border-radius: 18px;
+  background: linear-gradient(150deg, #1B1F27, #0B0D12);
+  color: #fff;
+}
+
+.td-art__cta h3 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.td-art__cta p {
+  margin: 0;
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, .68);
+}
+
+.td-art__cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  background: var(--td-orange);
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.td-art__cta a:hover {
+  background: #fff;
+  color: #12141A;
+  transform: translateY(-2px);
+}
+
+.td-more {
+  margin: 78px 0 10px;
+}
+
+.td-more__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.td-more__head h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.4vw, 32px);
+}
+
+.td-more__head a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--td-orange);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.td-more__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.td-more__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color, #e8e0dc);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  text-decoration: none;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.td-more__card:hover {
+  transform: translateY(-4px);
+  border-color: var(--td-orange);
+  box-shadow: 0 16px 40px rgba(18, 20, 26, .12);
+}
+
+.td-more__img {
+  display: block;
+  overflow: hidden;
+}
+
+.td-more__img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.td-more__tag {
+  padding: 16px 20px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--td-orange);
+}
+
+.td-more__title {
+  padding: 6px 20px 22px;
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.32;
+  color: var(--title-color, #12141A);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 991px) {
+  .td-art__hero {
+    padding: 92px 0 120px;
+  }
+
+  .td-art__figure {
+    margin-top: -84px;
+  }
+
+  .td-art__body {
+    margin-top: 44px;
+    font-size: 16.5px;
+  }
+
+  .td-more__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .td-art__hero {
+    padding: 74px 0 96px;
+  }
+
+  .td-art__figure {
+    margin-top: -62px;
+  }
+
+  .td-art__figure img {
+    border-radius: 12px;
+  }
+
+  .td-art__body>p:first-child::first-letter {
+    font-size: 54px;
+  }
+
+  .td-art__cta {
+    padding: 24px;
+  }
+
+  .td-more__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Insights index — card grid. Replaces the template's three-post section where
+   every card linked to the same detail page.
+   -------------------------------------------------------------------------- */
+
+.td-posts {
+  padding-top: 78px;
+}
+
+.td-posts__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.td-post {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color, #e8e0dc);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  text-decoration: none;
+  transition: transform .26s ease, box-shadow .26s ease, border-color .26s ease;
+}
+
+.td-post:hover,
+.td-post:focus-visible {
+  transform: translateY(-5px);
+  border-color: var(--td-orange);
+  box-shadow: 0 20px 46px rgba(18, 20, 26, .13);
+}
+
+.td-post__img {
+  display: block;
+  overflow: hidden;
+}
+
+.td-post__img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform .5s ease;
+}
+
+.td-post:hover .td-post__img img {
+  transform: scale(1.04);
+}
+
+.td-post__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 24px 26px;
+}
+
+.td-post__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin-bottom: 12px;
+  font-size: 12.5px;
+  color: var(--td-gray);
+}
+
+.td-post__tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--td-orange);
+}
+
+.td-post__title {
+  font-family: var(--title-font, "Rajdhani", sans-serif);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.28;
+  color: var(--title-color, #12141A);
+  margin-bottom: 10px;
+}
+
+.td-post:hover .td-post__title {
+  color: var(--td-orange);
+}
+
+.td-post__stand {
+  flex: 1;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #5B6069;
+  margin-bottom: 18px;
+}
+
+.td-post__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--td-orange);
+}
+
+@media (max-width: 991px) {
+  .td-posts__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .td-posts {
+    padding-top: 54px;
+  }
+
+  .td-posts__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ── Apply modal (careers) ──────────────────────────────────────────────────
+   .td-modal is the shared shell (backdrop, dialog, close button); .td-apply__*
+   are the careers form's own fields and .td-legal__* the terms/privacy copy.
+   Built here rather than on Bootstrap's modal so the panel keeps the brand
+   palette and does not inherit Bootstrap's blue focus rings.                */
+.td-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.td-modal[hidden] {
+  display: none;
+}
+
+.td-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 13, 18, .72);
+  backdrop-filter: blur(3px);
+  animation: tdApplyFade .22s ease both;
+}
+
+.td-modal__dialog {
+  position: relative;
+  width: min(640px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 40px 36px;
+  box-shadow: 0 32px 80px rgba(11, 13, 18, .38);
+  border-top: 4px solid var(--td-orange);
+  animation: tdApplyRise .26s cubic-bezier(.2, .8, .3, 1) both;
+}
+
+@keyframes tdApplyFade {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes tdApplyRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(.985)
+  }
+
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .td-modal__backdrop,
+  .td-modal__dialog {
+    animation: none;
+  }
+}
+
+.td-modal__x {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--smoke-color);
+  color: var(--title-color);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.td-modal__x:hover {
+  background: var(--td-orange);
+  color: #fff;
+}
+
+.td-apply__eyebrow {
+  margin: 0 0 4px;
+  font-size: 13px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--td-orange);
+  font-weight: 600;
+}
+
+.td-apply__title {
+  margin: 0 0 10px;
+  font-size: 1.6rem;
+  color: var(--title-color);
+}
+
+.td-apply__sub {
+  margin: 0 0 26px;
+  font-size: .95rem;
+  color: var(--text-color);
+}
+
+.td-apply__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.td-apply__field--wide {
+  grid-column: 1 / -1;
+}
+
+.td-apply__field {
+  display: block;
+}
+
+.td-apply__field>span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--title-color);
+}
+
+.td-apply__field>span b {
+  color: var(--td-orange);
+  font-weight: 500;
+}
+
+.td-apply__field input[type="text"],
+.td-apply__field input[type="email"] {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border: 1px solid #E3E5EA;
+  border-radius: 8px;
+  background: var(--smoke-color);
+  color: var(--title-color);
+  font-size: 15px;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.td-apply__field input:focus {
+  outline: 0;
+  border-color: var(--td-orange);
+  box-shadow: 0 0 0 3px rgba(243, 107, 33, .16);
+  background: #fff;
+}
+
+.td-apply__file {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 12px 16px;
+  border: 1px dashed #C9CDD6;
+  border-radius: 8px;
+  background: var(--smoke-color);
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+}
+
+.td-apply__file:hover {
+  border-color: var(--td-orange);
+  background: rgba(243, 107, 33, .05);
+}
+
+.td-apply__file input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.td-apply__file i {
+  color: var(--td-orange);
+  font-size: 16px;
+  flex: none;
+}
+
+.td-apply__filename {
+  font-size: 14px;
+  color: var(--text-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.td-apply__file.has-file {
+  border-style: solid;
+  border-color: var(--td-orange);
+  background: #fff;
+}
+
+.td-apply__file.has-file .td-apply__filename {
+  color: var(--title-color);
+  font-weight: 500;
+}
+
+.td-apply__send {
+  margin-top: 26px;
+}
+
+.td-modal .td-form-note {
+  margin: 18px 0 0;
+}
+
+body.td-modal-lock {
+  overflow: hidden;
+}
+
+@media (max-width: 575px) {
+  .td-modal {
+    padding: 12px;
+  }
+
+  .td-modal__dialog {
+    padding: 32px 22px 26px;
+  }
+
+  .td-apply__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Contact info cards: the template lets .content wrap under the icon once the
+   text is wider than the remaining track, so the office address dropped to its
+   own line while the email stayed inline. Keep the icon fixed and let the text
+   wrap inside its own column instead. */
+/* main.css sets flex-wrap:wrap under 1199px at selector depth (0,4,0), so this
+   has to match that depth to land. */
+.contact-wrapper-2 .contact-left-items .contact-info-area-2 .contact-info-items {
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.contact-wrapper-2 .contact-left-items .contact-info-area-2 .contact-info-items .icon {
+  flex: 0 0 auto;
+}
+
+.contact-wrapper-2 .contact-left-items .contact-info-area-2 .contact-info-items .content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.contact-wrapper-2 .contact-left-items .contact-info-area-2 .contact-info-items .content h3 {
+  font-size: 20px;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+/* The enquiry panel's mockup is a wide 720x560 window; cap it so it sits with
+   the info card rather than dwarfing it. */
+.contact-wrapper-2 .video-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ── Enquiry form as a sidebar widget ───────────────────────────────────────
+   The detail pages traded an Opening Hours widget and a "Talk to a Specialist"
+   card for the actual form. Narrower column, so tighten the padding and let
+   the fields stack. */
+.td-svc-form--aside {
+  padding: 26px 24px 30px;
+  margin-bottom: 0;
+}
+
+.td-svc-form--aside h3 {
+  font-size: 21px;
+}
+
+.td-svc-form--aside .row>[class*="col-"] {
+  width: 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.td-svc-form--aside .td-svc-form__btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.main-sidebar .td-svc-form--aside {
+  position: relative;
+}
+
+/* ── Careers: six reasons on one row ────────────────────────────────────────
+   Six cards at col-lg-4 made a 3x2 block of oversized boxes. One row of six,
+   dropping to 3 then 2 then 1 as the viewport narrows. */
+@media (min-width: 1200px) {
+  .career-growth-row>[class*="col-"] {
+    flex: 0 0 16.6666%;
+    max-width: 16.6666%;
+  }
+}
+
+.career-growth-card {
+  padding: 22px 18px;
+}
+
+.career-growth-card .icon-wrap {
+  width: 44px;
+  height: 44px;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.career-growth-card h4 {
+  font-size: 1.02rem;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.career-growth-card p {
+  font-size: .855rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .career-growth-row>[class*="col-"] {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
+}
+
+/* ── Hero: gradient edge + the badge that never stops turning ───────────────
+   main.css paints .hero-main-container.style1 a flat orange. Painting two
+   backgrounds — the fill clipped to the padding box, the gradient to the
+   border box — turns a transparent border into a gradient edge without an
+   extra wrapper element. */
+.hero-main-container.style1 {
+  border: 6px solid transparent;
+  background-image:
+    linear-gradient(var(--theme), var(--theme)),
+    linear-gradient(125deg, #FFFFFF 0%, #FFCFAE 14%, #8F2F04 34%, #FFFFFF 50%, #8F2F04 66%, #FFCFAE 86%, #FFFFFF 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 220% 220%;
+  background-position: 0 0, 0% 50%;
+  animation: td-hero-edge 14s ease-in-out infinite alternate;
+}
+
+@keyframes td-hero-edge {
+  from {
+    background-position: 0 0, 0% 50%;
+  }
+
+  to {
+    background-position: 0 0, 100% 50%;
+  }
+}
+
+/* The hero is clipped by url(#heroMask2), whose bottom edge sits ~110px above
+   the container's own bottom — a badge pinned to bottom:46px got sliced in half
+   at wide viewports. Sit it in the clear space to the right of the wave. */
+.hero-spinner {
+  position: absolute;
+  right: 72px;
+  bottom: 158px;
+  width: 132px;
+  height: 132px;
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 34px rgba(60, 18, 0, .45));
+}
+
+@media (max-width: 1899px) {
+  .hero-spinner {
+    right: 56px;
+    bottom: 118px;
+  }
+}
+
+@media (max-width: 1399px) {
+  .hero-spinner {
+    width: 118px;
+    height: 118px;
+    right: 40px;
+    bottom: 100px;
+  }
+}
+
+/* Below 1200 the hero stacks and the badge lands on the checklist — and there
+   is no empty corner left for it to sit in. */
+@media (max-width: 1199px) {
+  .hero-spinner {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-main-container.style1 {
+    animation: none;
+  }
+}
+
+/* ── Terms / privacy dialog ─────────────────────────────────────────────────
+   These used to link to contact.html, which answered neither question. Same
+   shell as the apply modal, scrollable copy instead of a form. */
+.td-legal .td-modal__dialog {
+  width: min(760px, 100%);
+  padding: 40px 44px 36px;
+}
+
+.td-legal__eyebrow {
+  margin: 0 0 4px;
+  font-size: 13px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--td-orange);
+  font-weight: 600;
+}
+
+.td-legal__title {
+  margin: 0 0 6px;
+  font-size: 1.6rem;
+  color: var(--title-color);
+}
+
+.td-legal__updated {
+  margin: 0 0 22px;
+  font-size: .85rem;
+  color: var(--td-gray);
+}
+
+.td-legal__body {
+  max-height: 58vh;
+  overflow-y: auto;
+  padding-right: 14px;
+  border-top: 1px solid #ECEEF2;
+  padding-top: 22px;
+}
+
+.td-legal__body h4 {
+  margin: 22px 0 8px;
+  font-size: 1rem;
+  color: var(--title-color);
+}
+
+.td-legal__body h4:first-child {
+  margin-top: 0;
+}
+
+.td-legal__body p {
+  margin: 0 0 12px;
+  font-size: .93rem;
+  line-height: 1.72;
+  color: var(--text-color);
+}
+
+/* main.css sets `ul { padding-left: 0 !important }` globally, so the bullets
+   would render outside the box and be clipped. !important is the only way
+   to answer !important without editing the vendor stylesheet. */
+.td-legal__body ul {
+  margin: 0 0 14px;
+  padding-left: 20px !important;
+}
+
+.td-legal__body li {
+  margin-bottom: 7px;
+  font-size: .93rem;
+  line-height: 1.65;
+  color: var(--text-color);
+  list-style: disc;
+}
+
+.td-legal__body a {
+  color: var(--td-orange);
+}
+
+.td-legal__body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.td-legal__body::-webkit-scrollbar-thumb {
+  background: #D8DCE3;
+  border-radius: 3px;
+}
+
+.td-legal__foot {
+  margin: 20px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid #ECEEF2;
+  font-size: .85rem;
+  color: var(--td-gray);
+}
+
+@media (max-width: 575px) {
+  .td-legal .td-modal__dialog {
+    padding: 32px 20px 26px;
+  }
+
+  .td-legal__body {
+    max-height: 62vh;
+    padding-right: 8px;
+  }
+}
+
+/* ── Top bar: theme toggle and social button ────────────────────────────────
+   The language switcher offered English/Urdu (and Bangla/Hindi on 404) with no
+   translation behind any of it. Replaced by a control that does something. */
+.td-theme-toggle {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-right: 6px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .07);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s, transform .2s;
+}
+
+.td-theme-toggle:hover {
+  background: var(--td-orange);
+  border-color: var(--td-orange);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.td-theme-toggle i {
+  position: absolute;
+  transition: opacity .2s, transform .3s;
+}
+
+.td-theme-toggle__sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(.6);
+}
+
+.td-theme-toggle__moon {
+  opacity: 1;
+  transform: none;
+}
+
+[data-theme="dark"] .td-theme-toggle__sun {
+  opacity: 1;
+  transform: none;
+}
+
+[data-theme="dark"] .td-theme-toggle__moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(.6);
+}
+
+/* On index.html the toggle sits in the white header, not the dark top bar. */
+.header-right .td-theme-toggle {
+  border-color: rgba(0, 0, 0, .14);
+  background: rgba(0, 0, 0, .04);
+  color: var(--title-color);
+  margin-right: 0;
+  margin-left: 14px;
+}
+
+.header-right .td-theme-toggle:hover {
+  color: #fff;
+}
+
+/* LinkedIn was a bare glyph on black. Give it a target and a hover. */
+.td-social {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .09);
+  border: 1px solid rgba(255, 255, 255, .22);
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background .22s, border-color .22s, transform .22s, box-shadow .22s;
+}
+
+.td-social:hover,
+.td-social:focus-visible {
+  background: #0A66C2;
+  /* LinkedIn blue, only on hover */
+  border-color: #0A66C2;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(10, 102, 194, .38);
+}
+
+.offcanvas__wrapper .td-social,
+.footer-area .td-social {
+  background: rgba(255, 255, 255, .12);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   DARK THEME
+   main.css resolves colour through var() 974 times against ~28 root tokens,
+   so the bulk of the site flips by redefining those tokens. What follows the
+   token block are the places that hardcode a colour and need answering.
+   ══════════════════════════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  /* Background-only tokens: safe to darken. */
+  --bg: #14171E;
+  --bg2: #0A0C10;
+  --bg3: #ffffff1a;
+  --smoke-color: #14171E;
+  --smoke-color2: #171B23;
+  --smoke-color3: #14171E;
+  --smoke-color4: #262B35;
+  --gray-color: #1A1E26;
+  --border: #262B35;
+  --border2: #39404D;
+  --border-color: #262B35;
+
+  /* Foreground-only tokens: lighten so they read on the dark ground. */
+  --text: #A7ADB8;
+  --text-color: #A7ADB8;
+  --light-color: #A7ADB8;
+  --title-color: #F2F4F7;
+  --text-color2: #F2F4F7;
+  --black-color: #F2F4F7;
+  --black: #ffffff;
+  /* --header is NOT flipped: main.css uses it for the black top bar as well
+      as for nav text. Flipping turned the bar light. Nav text is coloured
+      explicitly further down instead. */
+
+  /* --white / --white-color / --body-color are left ALONE. main.css uses them
+      126, 80 and 13 times as `color:` — white text sitting on dark grounds that
+      stay dark. Flipping them blanks that text out. The rules that use them as a
+      surface are overridden explicitly further down. */
+
+  --body: #0E1015;
+  --box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.45);
+  --box-shadow-2: 0px 4px 25px rgba(243, 107, 33, 0.22);
+  color-scheme: dark;
+}
+
+[data-theme="dark"] body {
+  background: var(--body);
+  color: var(--text-color);
+}
+
+/* Panels the template paints with a literal white or near-white. */
+[data-theme="dark"] .career-growth-card,
+[data-theme="dark"] .job-card,
+[data-theme="dark"] .td-modal__dialog,
+[data-theme="dark"] .single-sidebar-widget,
+[data-theme="dark"] .accordion-item,
+[data-theme="dark"] .accordion-button,
+[data-theme="dark"] .accordion-body,
+[data-theme="dark"] .faq-accordion .accordion-item {
+  background-color: #14171E;
+}
+
+[data-theme="dark"] .career-growth-card,
+[data-theme="dark"] .job-card {
+  border-color: #262B35;
+}
+
+[data-theme="dark"] .accordion-item {
+  border: 1px solid #262B35;
+}
+
+[data-theme="dark"] .accordion-button {
+  color: var(--title-color);
+}
+
+[data-theme="dark"] .accordion {
+  --bs-accordion-bg: #14171E;
+  --bs-accordion-color: var(--text-color);
+  --bs-accordion-btn-color: var(--title-color);
+  --bs-accordion-border-color: #262B35;
+}
+
+/* Our own components that hardcode light values. */
+[data-theme="dark"] .td-modal__dialog {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .td-legal__title,
+[data-theme="dark"] .td-apply__title,
+[data-theme="dark"] .td-legal__body h4 {
+  color: var(--title-color);
+}
+
+[data-theme="dark"] .td-legal__body,
+[data-theme="dark"] .td-legal__foot {
+  border-color: #262B35;
+}
+
+[data-theme="dark"] .td-apply__field input[type="text"],
+[data-theme="dark"] .td-apply__field input[type="email"],
+[data-theme="dark"] .td-apply__file {
+  background: #0E1015;
+  border-color: #303643;
+  color: var(--title-color);
+}
+
+[data-theme="dark"] .td-apply__field input:focus {
+  background: #0E1015;
+}
+
+[data-theme="dark"] .td-modal__x {
+  background: #1E222B;
+  color: var(--title-color);
+}
+
+[data-theme="dark"] .td-legal__body::-webkit-scrollbar-thumb {
+  background: #333A46;
+}
+
+[data-theme="dark"] .td-post,
+[data-theme="dark"] .td-more__card {
+  background: #14171E;
+  border-color: #262B35;
+}
+
+[data-theme="dark"] .td-tech {
+  background: #14171E;
+  border-color: #262B35;
+}
+
+/* .td-value keeps its own gradient in both themes — the section is dark by
+   design, so do not flatten it back to a single fill here. */
+[data-theme="dark"] .td-pillar {
+  background: #14171E;
+  border-color: #262B35;
+}
+
+/* The header floats white over the banner; keep it a panel, not a hole. */
+[data-theme="dark"] .header-main.style-2,
+[data-theme="dark"] #header-sticky.header-1 .header-main {
+  background: #14171E;
+}
+
+[data-theme="dark"] .header-main.style-2 {
+  border-bottom-color: rgba(243, 107, 33, .45);
+}
+
+/* Sections that were deliberately light. */
+[data-theme="dark"] .career-intro,
+[data-theme="dark"] .bg-theme-color2,
+[data-theme="dark"] .section-bg-2 {
+  background: #14171E !important;
+}
+
+/* Already-dark components keep their own ground — do not let tokens flip them. */
+[data-theme="dark"] .td-insights,
+[data-theme="dark"] .td-art__hero,
+[data-theme="dark"] .td-svc,
+[data-theme="dark"] .td-svc-form,
+[data-theme="dark"] footer.footer-area {
+  color: #fff;
+}
+
+[data-theme="dark"] .td-svc-form--aside h3,
+[data-theme="dark"] .td-insights .td-insights__title {
+  color: #fff;
+}
+
+/* Images that were drawn for a light page. */
+[data-theme="dark"] .td-shots img {
+  filter: brightness(.86) contrast(1.04);
+}
+
+/* The toggle in index.html's header, once that header is dark. */
+[data-theme="dark"] .header-right .td-theme-toggle {
+  border-color: rgba(255, 255, 255, .2);
+  background: rgba(255, 255, 255, .07);
+  color: #fff;
+}
+
+/* career.html carried `style="background:#fff"` inline, which no stylesheet can
+   answer without !important. Moved to a class so both themes can set it. */
+.career-growth-section {
+  background: var(--body-color);
+}
+
+/* ── Dark theme: the light grounds the audit turned up ──────────────────────
+   Everything else resolves through the token block; these hardcode a colour.  */
+[data-theme="dark"] .about-section {
+  background-image: none !important;
+}
+
+[data-theme="dark"] .about-section,
+[data-theme="dark"] .career-growth-section {
+  background-color: #0E1015;
+}
+
+[data-theme="dark"] .td-location,
+[data-theme="dark"] .td-cta-bar__inner,
+[data-theme="dark"] .td-svc-gets,
+[data-theme="dark"] .service-card.style1 {
+  background: #14171E;
+  border-color: #262B35;
+}
+
+[data-theme="dark"] .service-card.style1 .title,
+[data-theme="dark"] .td-svc-gets h4,
+[data-theme="dark"] .td-location strong {
+  color: var(--title-color);
+}
+
+[data-theme="dark"] .td-svc-gets .list li {
+  color: var(--text-color);
+}
+
+/* ── Dark theme: surfaces the template paints from a foreground token ──────
+   Generated from main.css by scratchpad/gen_dark.py. `--white` and friends
+   stay white because they are mostly TEXT colours; the rules below are the
+   ones that used them as a ground, so only those flip.                     */
+[data-theme="dark"] .about-wrapper .about-image-items .counter-shape,
+[data-theme="dark"] .about-wrapper-2 .about-content .icon-area .icon-items,
+[data-theme="dark"] .about-wrapper-2 .about-image .video-box,
+[data-theme="dark"] .about-wrapper.style-2 .about-content .about-icon-items .icon-items .icon,
+[data-theme="dark"] .array-button .array-next:hover,
+[data-theme="dark"] .bg-body-color,
+[data-theme="dark"] .blog-card.style1 .blog-card-body,
+[data-theme="dark"] .blog-card.style2 .blog-card-body,
+[data-theme="dark"] .contact-form-wrapper.style1,
+[data-theme="dark"] .contact-info-area .contact-info-items .icon,
+[data-theme="dark"] .contact-wrapper-2 .contact-left-items .video-image .video-box .video-btn,
+[data-theme="dark"] .cta-banner-2 .cta-wrapper-2 .author-icon .icon,
+[data-theme="dark"] .cta-banner-2::before,
+[data-theme="dark"] .email-input-container #email,
+[data-theme="dark"] .et-social a:hover,
+[data-theme="dark"] .fancy-box.style2 .item .icon,
+[data-theme="dark"] .faq-content .accordion-item,
+[data-theme="dark"] .faq-content.style-3 .accordion-item,
+[data-theme="dark"] .faq-content.style-3 .accordion-item .accordion-collapse .accordion-body,
+[data-theme="dark"] .faq-content.style-3 .accordion-item .accordion-header .accordion-button,
+[data-theme="dark"] .faq-content.style1 .accordion-item,
+[data-theme="dark"] .faq-content.style1 .accordion-item .accordion-collapse .accordion-body,
+[data-theme="dark"] .faq-content.style1 .accordion-item .accordion-header .accordion-button,
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-group.style-white .form-control,
+[data-theme="dark"] .form-group.style-white2 .form-control,
+[data-theme="dark"] .form-select.style-white2,
+[data-theme="dark"] .form-select:focus,
+[data-theme="dark"] .gt-btn.style2,
+[data-theme="dark"] .gt-btn.style5,
+[data-theme="dark"] .header-main .main-menu ul li .submenu,
+[data-theme="dark"] .header-main.style-2,
+[data-theme="dark"] .hero-3 .array-button .array-next:hover,
+[data-theme="dark"] .hero-3 .array-button .array-prev:hover,
+[data-theme="dark"] .hero-3 .hero-content h5::before,
+[data-theme="dark"] .icon-btn:hover .badge,
+[data-theme="dark"] .main-sidebar .single-sidebar-image .contact-text .icon,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .news-widget-categories ul li,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .opening-category ul li,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .search-widget form input,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .tagcloud a,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .widget-categories ul li,
+[data-theme="dark"] .news-card-items .news-content,
+[data-theme="dark"] .news-card-items.style-3,
+[data-theme="dark"] .news-details-area .blog-post-details .comments-area .blog-single-comment .content .reply,
+[data-theme="dark"] .play-btn.style3:after,
+[data-theme="dark"] .play-btn.style3:before,
+[data-theme="dark"] .play-btn.style3:hover>i,
+[data-theme="dark"] .pricing-card.style1,
+[data-theme="dark"] .pricing-card.style2,
+[data-theme="dark"] .pricing-card.style3,
+[data-theme="dark"] .pricing-items,
+[data-theme="dark"] .project-card.style2 .project-meta .number,
+[data-theme="dark"] .project-content.style1,
+[data-theme="dark"] .project-details-wrapper .project-details-items .project-catagory,
+[data-theme="dark"] .project-item-card.style1,
+[data-theme="dark"] .project-item-card.style1 .project-icon,
+[data-theme="dark"] .project-items .project-image .project-content.style2,
+[data-theme="dark"] .project-items .project-image .project-content.style2 .icon,
+[data-theme="dark"] .project-items .project-image .project-content.style3,
+[data-theme="dark"] .project-items .project-image .project-content.style3 .icon,
+[data-theme="dark"] .project-section-3::after,
+[data-theme="dark"] .scroll-top svg,
+[data-theme="dark"] .service-box-items,
+[data-theme="dark"] .service-box-items.style-2,
+[data-theme="dark"] .service-box-items.style-3,
+[data-theme="dark"] .service-box-items.style-3 .theme-btn-2:hover,
+[data-theme="dark"] .service-box-items.style-3.active .theme-btn-2,
+[data-theme="dark"] .service-card-items,
+[data-theme="dark"] .service-card.style1:hover .body .link-btn.style1,
+[data-theme="dark"] .service-card.style1:hover .icon,
+[data-theme="dark"] .service-card.style2,
+[data-theme="dark"] .service-card.style2:hover .body .link-btn.style1,
+[data-theme="dark"] .service-card.style2:hover .icon,
+[data-theme="dark"] .service-details-wrapper .service-details-items .details-content .details-video-items .video-thumb .video-box .video-btn,
+[data-theme="dark"] .single-news-items .news-image .post-date,
+[data-theme="dark"] .single-select.style-white2,
+[data-theme="dark"] .single-select:focus,
+[data-theme="dark"] .single-team-items .team-image .social-profile ul li a,
+[data-theme="dark"] .social-profile ul li a,
+[data-theme="dark"] .sticky,
+[data-theme="dark"] .team-card-items .team-content,
+[data-theme="dark"] .team-card-items .team-image .social-profile ul li a,
+[data-theme="dark"] .team-card.style2 .team-card-body .team-content,
+[data-theme="dark"] .team-wrapper .team-items .social-profile .plus-btn,
+[data-theme="dark"] .team-wrapper .team-items .team-title h4::before,
+[data-theme="dark"] .tesimonial-section-2::after,
+[data-theme="dark"] .testimonial-box-items,
+[data-theme="dark"] .testimonial-card.style1,
+[data-theme="dark"] .testimonial-card.style2,
+[data-theme="dark"] .testimonial-card.style3,
+[data-theme="dark"] .testimonial-wrapper .testimonial-items .tesimonial-image .star,
+[data-theme="dark"] .testimonial-wrapper-2 .tesimonial-area .tesimonial-card-items,
+[data-theme="dark"] .theme-btn.bg-white,
+[data-theme="dark"] .theme-btn.border-white::after,
+[data-theme="dark"] .theme-btn.border-white::before,
+[data-theme="dark"] .theme-btn.hover-white::after,
+[data-theme="dark"] .theme-btn.hover-white::before,
+[data-theme="dark"] .work-process-items .icon,
+[data-theme="dark"] input:focus,
+[data-theme="dark"] input[type=checkbox]~label:before,
+[data-theme="dark"] input[type=radio]~label::before,
+[data-theme="dark"] select.style-white2,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+  background-color: #14171E;
+}
+
+/* The header floats a white bar over the banner; --white-color stays white, so
+   name the surface directly. */
+[data-theme="dark"] .header-main.style-2,
+[data-theme="dark"] .header-1 .header-main,
+[data-theme="dark"] .offcanvas__info,
+[data-theme="dark"] .mean-bar,
+[data-theme="dark"] .mean-container .mean-nav,
+[data-theme="dark"] .search-wrap {
+  background-color: #14171E;
+}
+
+[data-theme="dark"] .main-menu ul li a,
+[data-theme="dark"] .mean-container a.meanmenu-reveal,
+[data-theme="dark"] .header-right .search-icon {
+  color: var(--title-color);
+}
+
+[data-theme="dark"] .main-menu ul li a:hover,
+[data-theme="dark"] .main-menu ul li.active>a {
+  color: var(--td-orange);
+}
+
+/* Breadcrumb sits on the dark banner art in both themes, so it must stay light
+   regardless of what --body-color means. */
+.breadcrumb-wrapper .breadcrumb-items li,
+.breadcrumb-wrapper .breadcrumb-items li a,
+.breadcrumb-wrapper .page-heading h1 {
+  color: #fff;
+}
+
+/* Components of ours that hardcode a dark ink for a light page. */
+[data-theme="dark"] .td-art__body,
+[data-theme="dark"] .td-art__body p,
+[data-theme="dark"] .td-art__list li,
+[data-theme="dark"] .td-art__callout p,
+[data-theme="dark"] .td-art__quote p,
+[data-theme="dark"] .td-art__kicker {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .td-art__h,
+[data-theme="dark"] .td-art__list li strong,
+[data-theme="dark"] .td-art__callout strong {
+  color: var(--title-color);
+}
+
+[data-theme="dark"] .td-post__title,
+[data-theme="dark"] .td-more__title {
+  color: var(--title-color);
+}
+
+[data-theme="dark"] .td-post__stand {
+  color: var(--text-color);
+}
+
+/* Template cards whose body copy is a hardcoded mid-dark grey. */
+[data-theme="dark"] .work-process-card .text,
+[data-theme="dark"] .service-card .text,
+[data-theme="dark"] .pricing-card .text,
+[data-theme="dark"] .job-card .job-desc,
+[data-theme="dark"] .career-growth-card p {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .work-process-card .title,
+[data-theme="dark"] .service-card .title,
+[data-theme="dark"] .career-growth-card h4,
+[data-theme="dark"] .job-card h3 {
+  color: var(--title-color);
+}
+
+/* Elements the template inks with a literal black; invisible on a dark ground. */
+[data-theme="dark"] .form-clt span,
+[data-theme="dark"] .form-clt label,
+[data-theme="dark"] .accordion-button,
+[data-theme="dark"] .accordion-button.collapsed,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .widget-categories ul li a,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .news-widget-categories ul li a,
+[data-theme="dark"] .text-slider .text-style,
+[data-theme="dark"] .wid-title h3,
+[data-theme="dark"] .faq-content .accordion-body,
+[data-theme="dark"] .contact-content h2 {
+  color: var(--title-color);
+}
+
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .widget-categories ul li a:hover,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .widget-categories ul li.active a {
+  color: #fff;
+}
+
+[data-theme="dark"] .form-clt input,
+[data-theme="dark"] .form-clt textarea {
+  background-color: #0E1015;
+  border-color: #303643;
+  color: var(--title-color);
+}
+
+[data-theme="dark"] .form-clt input::placeholder,
+[data-theme="dark"] .form-clt textarea::placeholder {
+  color: #6B7280;
+}
+
+/* The dark form panels set their own light-on-dark colours; do not let the
+   generic rule above pull their labels back to the page's title colour. */
+[data-theme="dark"] .td-svc-form .form-clt span,
+[data-theme="dark"] .td-svc-form .contact-form-items .form-clt span {
+  color: rgba(255, 255, 255, .6);
+}
+
+[data-theme="dark"] .td-svc-form input,
+[data-theme="dark"] .td-svc-form textarea {
+  background-color: rgba(255, 255, 255, .05);
+  color: #fff;
+}
+
+/* Pre-existing in BOTH themes: this paragraph inherited a mid-grey and sat on
+   the orange CTA at 1.3:1. */
+.career-cta-section p {
+  color: #fff;
+}
+
+/* ── Dark theme: text the template inks near-black ─────────────────────────
+   Generated by scratchpad/gen_dark_ink.py using main.css's own selectors, so
+   the override matches its specificity exactly — hand-written rules were
+   losing to five-class selectors.                                          */
+[data-theme="dark"] .about-wrapper-2 .about-content .about-author .author-icon .content span,
+[data-theme="dark"] .about-wrapper-2 .about-content .icon-area .icon-items .content span,
+[data-theme="dark"] .blog-card.style1 .blog-card-body h3 a,
+[data-theme="dark"] .blog-card.style2 .blog-card-body h3 a,
+[data-theme="dark"] .brand-wrapper h6,
+[data-theme="dark"] .choose-us-wrapper .choose-content .progress-wrap .pro-items .pro-head .point,
+[data-theme="dark"] .contact-form.style1 h2,
+[data-theme="dark"] .contact-wrapper-2 .contact-content .contact-form-items .form-clt span,
+[data-theme="dark"] .faq-content .accordion-item .accordion-header .accordion-button.collapsed,
+[data-theme="dark"] .header-1 .header-main .header-right .search-icon,
+[data-theme="dark"] .header-3 .header-main .header-right .search-icon,
+[data-theme="dark"] .header-4 .header-main .header-right .search-icon,
+[data-theme="dark"] .header-main .main-menu ul li .submenu,
+[data-theme="dark"] .header-main .main-menu ul li .submenu li a,
+[data-theme="dark"] .header-main .main-menu ul li a,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .news-widget-categories ul li a,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .news-widget-categories ul li span,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .opening-category ul li,
+[data-theme="dark"] .main-sidebar .single-sidebar-widget .widget-categories ul li a,
+[data-theme="dark"] .marquee-item.style-2 .text-slider,
+[data-theme="dark"] .mean-container .mean-nav ul li a,
+[data-theme="dark"] .news-details-area .blog-post-details .tag-share-wrap .social-share a,
+[data-theme="dark"] .news-details-area .blog-post-details .tag-share-wrap .social-share span,
+[data-theme="dark"] .preloader .animation-preloader .txt-loading .letters-loading::before,
+[data-theme="dark"] .pricing-wrapper .section-title-area .nav .nav-link,
+[data-theme="dark"] .project-details-wrapper .project-details-items .list li,
+[data-theme="dark"] .project-details-wrapper .project-details-items .project-catagory ul li,
+[data-theme="dark"] .service-box-items .content h4 a,
+[data-theme="dark"] .service-box-items.style-3 .theme-btn-2,
+[data-theme="dark"] .service-box-items.style-3 .theme-btn-2:hover,
+[data-theme="dark"] .service-box-items.style-3.active .theme-btn-2,
+[data-theme="dark"] .single-news-items .news-image .post-date span,
+[data-theme="dark"] .team-card-items .team-image .social-profile ul li a,
+[data-theme="dark"] .team-details-wrapper .team-details-content .progress-wrap .pro-items .pro-head .point,
+[data-theme="dark"] .team-details-wrapper .team-details-content .progress-wrap .pro-items .pro-head .title,
+[data-theme="dark"] .team-details-wrapper .team-details-content .social-icon span,
+[data-theme="dark"] .theme-btn.bg-white,
+[data-theme="dark"] .theme-btn.border-white:hover,
+[data-theme="dark"] .theme-btn.hover-white:hover {
+  color: var(--title-color);
+}
+
+/* ── Dark theme fixes for What We Do / Where We Make the Difference section ── */
+[data-theme="dark"] .service-card.style1 .icon {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+[data-theme="dark"] .service-card.style1 .body .link-btn.style1,
+[data-theme="dark"] .link-btn.style1 {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-theme="dark"] .service-card.style1:hover .body .link-btn.style1,
+[data-theme="dark"] .service-card.style1 .body .link-btn.style1:hover,
+[data-theme="dark"] .link-btn.style1:hover {
+  background: #ffffff !important;
+  color: #12141A !important;
+  border-color: #ffffff !important;
+}
+
+/* ── Hero section fixes ── */
+/* 1. Ensure Talk to Us button is fully clickable and links to contact.html */
+.contact-meta {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 24px;
+}
+
+.gt-btn.style4 {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  position: relative;
+  z-index: 10 !important;
+  text-decoration: none !important;
+  pointer-events: auto !important;
+}
+
+/* Hero content must sit above decorative shapes */
+.hero-content.style1 {
+  position: relative;
+  z-index: 10;
+}
+
+/* Decorative shapes must not block clicks */
+.hero-wrapper.style1 .shape1_2,
+.hero-wrapper.style1 .shape1_3,
+.hero-wrapper.style1 .shape1_4,
+.hero-wrapper.style1 .shape1_5 {
+  pointer-events: none !important;
+}
+
+/* 2. Hero checkmark items white text fix in all themes */
+.checklist.style3 li,
+[data-theme="dark"] .checklist.style3 li,
+.hero-content.style1 .checklist.style3 li {
+  color: #ffffff !important;
+}
+
+/* 3. Hero tracks / Hire Talent box hover fix — whole box must be interactive */
+.hero-tracks {
+  position: relative;
+  z-index: 10;
+  margin-top: 16px !important;
+}
+
+.hero-track {
+  position: relative;
+  z-index: 10;
+  display: flex !important;
+  flex-direction: column !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* ── Common Questions / FAQ Accordion rounding and left padding ── */
+.faq-content.style1 .accordion-item {
+  border-radius: 16px !important;
+  overflow: hidden;
+  margin-bottom: 16px !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .faq-content.style1 .accordion-item {
+  background-color: #14171E !important;
+  border: 1px solid #262B35 !important;
+  border-radius: 16px !important;
+}
+
+.faq-content.style1 .accordion-item .accordion-header .accordion-button {
+  padding: 18px 24px !important;
+  border-radius: 16px !important;
+  border-bottom: 0 !important;
+}
+
+.faq-content.style1 .accordion-item .accordion-header .accordion-button.collapsed {
+  padding: 18px 24px !important;
+  border-radius: 16px !important;
+  border-bottom: 0 !important;
+}
+
+.faq-content.style1 .accordion-item .accordion-collapse .accordion-body {
+  padding: 0 24px 22px 24px !important;
+  border-radius: 0 0 16px 16px !important;
+}

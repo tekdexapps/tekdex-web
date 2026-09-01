@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70" width="150" height="70">
+<defs><filter id="s" x="-30%" y="-30%" width="160%" height="180%">
+<feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.22"/></filter></defs>
+<g filter="url(#s)">
+<rect x="6" y="24.0" width="126" height="34" rx="17.0" fill="#FFFFFF"/>
+<circle cx="21" cy="41.0" r="3.6" fill="#F36B21"/>
+<text x="30" y="46.0" font-family="'Plus Jakarta Sans', system-ui, sans-serif"
+ font-size="14" font-weight="600" fill="#12141A">United States</text>
+</g>
+<g transform="translate(118,4) rotate(18)"><path d="M0,0 L20,7.5 L11.4,11.4 L7.5,20 Z" fill="#FFFFFF" stroke="#12141A" stroke-width="1.6" stroke-linejoin="round"/></g>
+</svg>

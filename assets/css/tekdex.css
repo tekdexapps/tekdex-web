@@ -298,6 +298,130 @@
   border-color: rgba(200, 40, 40, .3);
 }
 
+/* Submit button loading state */
+.theme-btn.is-sending {
+  opacity: .7;
+  pointer-events: none;
+  cursor: wait;
+}
+
+/* --------------------------------------------------------------------------
+   Toast notification system (used by contact form & future forms).
+   -------------------------------------------------------------------------- */
+
+.td-toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.td-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 320px;
+  max-width: 460px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .12), 0 2px 8px rgba(0, 0, 0, .08);
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1), opacity .35s ease;
+}
+
+.td-toast--visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.td-toast--dismissed {
+  transform: translateX(120%);
+  opacity: 0;
+}
+
+/* ── Success variant ── */
+.td-toast--success {
+  background: #ffffff;
+  border: 1px solid rgba(40, 167, 69, .3);
+  color: #1a1a1a;
+}
+
+.td-toast--success .td-toast__icon {
+  color: #28a745;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* ── Error variant ── */
+.td-toast--error {
+  background: #ffffff;
+  border: 1px solid rgba(200, 40, 40, .3);
+  color: #1a1a1a;
+}
+
+.td-toast--error .td-toast__icon {
+  color: #c82828;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* ── Shared toast elements ── */
+.td-toast__msg {
+  flex: 1;
+  font-weight: 500;
+}
+
+.td-toast__close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: .5;
+  padding: 0 0 0 8px;
+  line-height: 1;
+  transition: opacity .2s;
+  flex-shrink: 0;
+}
+
+.td-toast__close:hover {
+  opacity: 1;
+}
+
+/* ── Dark mode toast overrides ── */
+[data-theme="dark"] .td-toast--success {
+  background: #1a1f28;
+  border-color: rgba(40, 167, 69, .35);
+  color: #e2e4e9;
+}
+
+[data-theme="dark"] .td-toast--error {
+  background: #1a1f28;
+  border-color: rgba(200, 40, 40, .35);
+  color: #e2e4e9;
+}
+
+/* ── Responsive: stack toasts full-width on mobile ── */
+@media (max-width: 480px) {
+  .td-toast-container {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+  }
+  .td-toast {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Strategic pillars — replaces the template's two capability chips.
    -------------------------------------------------------------------------- */

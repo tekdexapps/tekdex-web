@@ -1,24 +1,32 @@
 /* TekDex — contact form handling.
  *
- * The template posted to contact.php, which cannot run on a static host, so
- * submitting produced a 404. Until a real endpoint is wired up, every enquiry
- * form composes a pre-filled email to consultations@tekdexinc.com instead. That
- * needs no backend, no third-party service, and loses nothing.
- *
- * To switch to a real endpoint later: set data-endpoint on the <form> (e.g. a
- * Formspree/Web3Forms URL or your own handler) and this falls back to a normal
- * POST.
+ * Posts form data as JSON to the TekDex backend API at /tekdex-web/contact.
+ * The backend emails the submission to consultations@tekdexinc.com and sends
+ * an acknowledgement to the visitor. No data is persisted to a database.
  */
 (function () {
   "use strict";
 
-  var INBOX = "consultations@tekdexinc.com";
+  var API_BASE = "https://dexify.tekdexinc.com/backend";
+  var POST_PATH = "/tekdex-web/contact";
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function getEndpointUrl(form) {
+    if (form && form.dataset.endpoint) {
+      return form.dataset.endpoint;
+    }
+    if (window.TEKDEX_API_BASE) {
+      return window.TEKDEX_API_BASE.replace(/\/+$/, "") + POST_PATH;
+    }
+    return API_BASE + POST_PATH;
+  }
 
   function val(form, name) {
     var el = form.querySelector('[name="' + name + '"]');
     return el && el.value ? el.value.trim() : "";
   }
 
+  /* ── Inline validation note (below the form) ── */
   function notify(form, message, ok) {
     var box = form.querySelector(".td-form-note");
     if (!box) {
@@ -31,46 +39,169 @@
     box.classList.toggle("is-error", !ok);
   }
 
-  function handle(e) {
-    var form = e.currentTarget;
+  function clearNotify(form) {
+    var box = form.querySelector(".td-form-note");
+    if (box) box.remove();
+  }
 
-    // A real endpoint was configured — let the browser submit normally.
-    if (form.dataset.endpoint) {
-      form.action = form.dataset.endpoint;
-      return;
+  /* ── Toast notification system ── */
+  function showToast(message, type) {
+    // type: "success" | "error"
+    var container = document.getElementById("td-toast-container");
+    if (!container) {
+      container = document.createElement("div");
+      container.id = "td-toast-container";
+      container.className = "td-toast-container";
+      document.body.appendChild(container);
     }
 
-    e.preventDefault();
+    var toast = document.createElement("div");
+    toast.className = "td-toast td-toast--" + type;
+    toast.setAttribute("role", "status");
+    toast.setAttribute("aria-live", "polite");
 
-    var name = val(form, "name");
-    var email = val(form, "email");
+    var icon = type === "success"
+      ? '<i class="fa-solid fa-circle-check"></i>'
+      : '<i class="fa-solid fa-circle-exclamation"></i>';
+
+    toast.innerHTML = '<span class="td-toast__icon">' + icon + '</span>' +
+      '<span class="td-toast__msg">' + message + '</span>' +
+      '<button class="td-toast__close" aria-label="Dismiss">&times;</button>';
+
+    container.appendChild(toast);
+
+    // Trigger enter animation
+    requestAnimationFrame(function () {
+      toast.classList.add("td-toast--visible");
+    });
+
+    // Close button
+    toast.querySelector(".td-toast__close").addEventListener("click", function () {
+      dismissToast(toast);
+    });
+
+    // Auto-dismiss after 6s
+    setTimeout(function () { dismissToast(toast); }, 6000);
+  }
+
+  function dismissToast(toast) {
+    if (toast.classList.contains("td-toast--dismissed")) return;
+    toast.classList.add("td-toast--dismissed");
+    toast.classList.remove("td-toast--visible");
+    setTimeout(function () { toast.remove(); }, 350);
+  }
+
+  /* ── Submit handler ── */
+  function handle(e) {
+    e.preventDefault();
+    var form = e.currentTarget;
+    var btn = form.querySelector('[type="submit"]');
+
+    // Prevent duplicate submissions
+    if (form.dataset.sending === "true") return;
+
+    clearNotify(form);
+
+    var name    = val(form, "name");
+    var email   = val(form, "email");
     var service = val(form, "service");
     var message = val(form, "message") || val(form, "msg");
 
-    if (!name || !email || !message) {
-      notify(form, "Please add your name, email, and a message before sending.", false);
+    // Validation
+    if (!name) {
+      notify(form, "Please enter your name.", false);
+      form.querySelector('[name="name"]').focus();
       return;
     }
-    if (email.indexOf("@") < 1 || email.indexOf(".") < 0) {
+    if (name.length < 2 || name.length > 255) {
+      notify(form, "Name must be between 2 and 255 characters.", false);
+      form.querySelector('[name="name"]').focus();
+      return;
+    }
+    if (!email) {
+      notify(form, "Please enter your email address.", false);
+      form.querySelector('[name="email"]').focus();
+      return;
+    }
+    if (!EMAIL_RE.test(email)) {
       notify(form, "That email address does not look right — please check it.", false);
+      form.querySelector('[name="email"]').focus();
+      return;
+    }
+    if (!service) {
+      notify(form, "Please tell us which service you're interested in.", false);
+      form.querySelector('[name="service"]').focus();
+      return;
+    }
+    if (service.length > 500) {
+      notify(form, "Service field is too long (max 500 characters).", false);
+      form.querySelector('[name="service"]').focus();
+      return;
+    }
+    if (!message) {
+      notify(form, "Please tell us about your requirements.", false);
+      var msgEl = form.querySelector('[name="message"]') || form.querySelector('[name="msg"]');
+      if (msgEl) msgEl.focus();
+      return;
+    }
+    if (message.length > 10000) {
+      notify(form, "Message is too long (max 10,000 characters).", false);
       return;
     }
 
-    var subject = service
-      ? "Enquiry: " + service + " — " + name
-      : "Website enquiry from " + name;
-    var body =
-      "Name: " + name + "\n" +
-      "Email: " + email + "\n" +
-      (service ? "Service interested in: " + service + "\n" : "") +
-      "\n" + message + "\n";
+    // Loading state
+    form.dataset.sending = "true";
+    var originalHTML = btn.innerHTML;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending\u2026';
+    btn.disabled = true;
+    btn.classList.add("is-sending");
 
-    window.location.href =
-      "mailto:" + INBOX +
-      "?subject=" + encodeURIComponent(subject) +
-      "&body=" + encodeURIComponent(body);
+    var payload = {
+      name: name,
+      email: email,
+      serviceInterestedIn: service,
+      message: message
+    };
 
-    notify(form, "Opening your email app — press send there and we'll pick it up.", true);
+    fetch(getEndpointUrl(form), {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(function (res) {
+      return res.text().then(function (text) {
+        var body = {};
+        try {
+          if (text) body = JSON.parse(text);
+        } catch (e) {}
+        return { ok: res.ok, status: res.status, body: body };
+      });
+    })
+    .then(function (result) {
+      if (result.ok) {
+        showToast("Message sent successfully. We\u2019ll get back to you soon.", "success");
+        form.reset();
+        clearNotify(form);
+      } else if (result.status === 400 && Array.isArray(result.body.message)) {
+        notify(form, result.body.message[0], false);
+      } else {
+        console.error("API Error:", result.status, result.body);
+        showToast("Unable to send your message. Please try again.", "error");
+      }
+    })
+    .catch(function (err) {
+      console.error("Fetch Error:", err);
+      if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.protocol === "file:") {
+        console.warn("[TekDex Form] Note: Backend CORS policy restricts browser requests to https://tekdexinc.com and https://www.tekdexinc.com. Cross-origin browser requests from local dev origins are blocked by design. Set data-endpoint or window.TEKDEX_API_BASE to route through a local proxy/mock if testing locally.");
+      }
+      showToast("Unable to send your message. Please try again.", "error");
+    })
+    .finally(function () {
+      form.dataset.sending = "false";
+      btn.innerHTML = originalHTML;
+      btn.disabled = false;
+      btn.classList.remove("is-sending");
+    });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -83,6 +214,7 @@
     });
   });
 })();
+
 
 /* Reading-progress bar on article pages. Cheap, passive, and skipped entirely
  * when the element is not present or the visitor prefers reduced motion. */
@@ -179,7 +311,14 @@
     var opener = e.target.closest ? e.target.closest("button.td-apply-open, a.td-apply-open") : null;
     if (opener) {
       e.preventDefault();
-      open(opener.getAttribute("data-role"), opener);
+      // Open Gmail compose with the job title from the data-role attribute
+      var role = opener.getAttribute("data-role") || "This role";
+      var subject = "Applying for " + role;
+      var gmailUrl =
+        "https://mail.google.com/mail/?view=cm&fs=1" +
+        "&to=hr@tekdexinc.com" +
+        "&su=" + encodeURIComponent(subject);
+      window.open(gmailUrl, "_blank");
       return;
     }
     if (e.target.closest && e.target.closest("[data-td-close]")) {

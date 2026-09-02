@@ -875,6 +875,12 @@
    headline lead.
    -------------------------------------------------------------------------- */
 
+@media (min-width: 1200px) {
+  .shape1_1:has(> img) {
+    margin-bottom: -150px !important;
+}
+}
+
 @media (max-width: 1199px) {
   .hero-thumb.style1 .main-thumb img {
     max-height: 340px;
@@ -2648,13 +2654,14 @@ body.td-modal-lock {
   }
 }
 
-/* The hero is clipped by url(#heroMask2), whose bottom edge sits ~110px above
-   the container's own bottom — a badge pinned to bottom:46px got sliced in half
-   at wide viewports. Sit it in the clear space to the right of the wave. */
+.hero-outer {
+  position: relative;
+}
+
 .hero-spinner {
   position: absolute;
   right: 72px;
-  bottom: 158px;
+  bottom: 72px;
   width: 132px;
   height: 132px;
   z-index: 4;
@@ -2665,7 +2672,7 @@ body.td-modal-lock {
 @media (max-width: 1899px) {
   .hero-spinner {
     right: 56px;
-    bottom: 118px;
+    bottom: 56px;
   }
 }
 
@@ -2674,7 +2681,7 @@ body.td-modal-lock {
     width: 118px;
     height: 118px;
     right: 40px;
-    bottom: 100px;
+    bottom: 40px;
   }
 }
 

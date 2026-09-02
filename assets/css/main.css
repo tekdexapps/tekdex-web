@@ -8863,8 +8863,7 @@ h6 {
   width: 100%;
   height: 100%;
   z-index: 3;
-  -webkit-clip-path: url(#heroMask2);
-          clip-path: url(#heroMask2);
+  overflow: hidden;
   transition: all 0.4s;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -8873,8 +8872,6 @@ h6 {
 }
 @media (max-width: 1899px) {
   .hero-main-container.style1 {
-    -webkit-clip-path: none;
-            clip-path: none;
     padding: 134px 0 0px;
   }
 }
